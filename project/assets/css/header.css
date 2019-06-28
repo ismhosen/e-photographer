@@ -1,0 +1,41 @@
+.signupin
+{
+    margin-top:10px; 
+    padding: 15px 30px;
+    color: #000;
+    
+}
+.mynavbar:hover
+{
+    text-decoration: none;
+    color: #000;
+    transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;	
+    
+}
+
+.job-bg
+{
+    background: #000;
+    padding: 10px 30px;
+    border-radius: 10px;
+    /* height: 30px; */
+}
+.mysearchbox
+{
+    width: 300px;
+    margin-top:3%;
+    margin-left: 200px;  
+    padding: 8px;
+    border: 1px solid #000;
+    border-radius: 10px; 
+    background-image: url("search.png");
+    background-position: 269px 6px; 
+    background-repeat: no-repeat;
+}
+.mysearchbox:focus
+{
+    /* border: 1px solid #000;
+    border-radius: 10px; */
+    /* border: none; */
+}
