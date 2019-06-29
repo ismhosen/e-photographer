@@ -109,12 +109,40 @@
     background: none;
     
 }
-.recommend-border-bottom
+            .recommend-hr
             {   
                 width: 138px;
                 border: none;
                 margin:10px 0 0px 0; 
                 border-bottom: 3px solid green;  
+            }
+            .wedding-hr
+            {
+                width: 112px;
+                border: none;
+                margin:10px 0 0px 0; 
+                border-bottom: 3px solid green;
+            }
+            .wildlife-hr
+            {
+                width: 112px;
+                border: none;
+                margin:10px 0 0px 0; 
+                border-bottom: 3px solid green;
+            }
+            .fashion-hr
+            {
+                width: 110px;
+                border: none;
+                margin:10px 0 0px 0; 
+                border-bottom: 3px solid green;
+            }
+            .sports-hr
+            {
+                width: 101px;
+                border: none;
+                margin:10px 0 0px 0; 
+                border-bottom: 3px solid green;
             }
             .historic-border-bottom
             {   
@@ -122,6 +150,9 @@
                 border: none;
                 margin:10px 0 0px 0; 
                 border-bottom: 3px solid green;
+                display: none;
+            }
+            #wedding-photos{
                 display: none;
             }
             /* .img-details
