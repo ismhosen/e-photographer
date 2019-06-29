@@ -29,9 +29,11 @@
                 <hr class="sports-hr">
             <%}%>                       
         </div>
-        <div class="architect-div gallery-div" id="architect" onclick="fetchData('architect_photos')">
-            <button class=" btn-active">Archithecture Photos</button>
-            <hr class="historic-border-bottom">                        
+        <div class="architect-div gallery-div" id="architect" onclick="fetchData('architecture_photos')">
+            <button class=" btn-active">Architecture Photos</button>
+            <% if(category=='architecture_photos'){ %>
+                <hr class="archi-hr">
+            <%}%>                       
         </div>
         <div class="historic-div gallery-div">
             <button class=" btn-active">Historic Photos</button>

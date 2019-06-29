@@ -144,6 +144,13 @@
                 margin:10px 0 0px 0; 
                 border-bottom: 3px solid green;
             }
+            .archi-hr
+            {
+                width: 135px;
+                border: none;
+                margin:10px 0 0px 0; 
+                border-bottom: 3px solid green;
+            }
             .historic-border-bottom
             {   
                 width: 108px;
