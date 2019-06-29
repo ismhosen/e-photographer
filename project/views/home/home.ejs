@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <% include ../common/link.ejs %>
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/footer.css">
     <title>Home</title>
 </head>
 <body>
@@ -56,9 +56,9 @@
                         <button class=" btn-active">Recommend Photos</button>
                         <hr class="recommend-border-bottom">                        
                     </div>
-                    <div class="historic-div gallery-div">
+                    <div class="wedding-div gallery-div">
                         <button class=" btn-active">Historic Photos</button>
-                        <hr class="historic-border-bottom">                        
+                        <!-- <hr class="historic-border-bottom">                         -->
                     </div>
                     <div class="historic-div gallery-div">
                         <button class=" btn-active">Historic Photos</button>
@@ -84,138 +84,18 @@
                     <br>
                     <hr>
                 <div class="row">
+                    <% for(var i=0; i < all_image.length; i++){ %>
                     <div class="col-lg-3 col-md-3 col-sm-4 col-sm-6 img-div">
-                        <a href="photodetails.php"><img class="myimg img-responsive" src="images/p1.JPG" alt=""></a>
-                        <!-- <div class="img-details"> -->
-                            <hr class="without-border-5px">
-                            <button class="btn btn-default fa fa-eye">&nbsp;1000</button>
-                            <button class="btn btn-default fa fa-comment">&nbsp;1000</button>
-                            <hr class="without-border-10px">
-                            <button class="btn btn-default fa fa-bookmark-o"></button>
-                            <button class="btn btn-default fa fa-cart-plus"></button>
-                            <button class="btn btn-default fa fa-share"></button>
-                        
+                        <a href="image_details/<%= all_image[i].id %>"><img class="myimg img-responsive" src="images/<%= all_image[i].img_name %>" alt=""></a>
+                        <hr class="without-border-5px">
+                        <button class="btn btn-default fa fa-eye">&nbsp;1000</button>
+                        <button class="btn btn-default fa fa-comment">&nbsp;1000</button>
+                        <hr class="without-border-10px">
+                        <button class="btn btn-default fa fa-bookmark-o"></button>
+                        <button class="btn btn-default fa fa-cart-plus"></button>
+                        <button class="btn btn-default fa fa-share"></button>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-4 col-sm-6 img-div">
-                            <a href="photodetails.php"><img class="myimg img-responsive" src="images/p2.jpg" alt=""></a>
-                            <!-- <div class="img-details"> -->
-                            <hr class="without-border-5px">
-                            <button class="btn btn-default fa fa-eye">&nbsp;1000</button>
-                            <button class="btn btn-default fa fa-comment">&nbsp;1000</button>
-                            <hr class="without-border-10px">
-                            <button class="btn btn-default fa fa-bookmark-o"></button>
-                            <button class="btn btn-default fa fa-cart-plus"></button>
-                            <button class="btn btn-default fa fa-share"></button>
-                        
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-4 col-sm-6 img-div">
-                            <a href="photodetails.php"><img class="myimg img-responsive" src="images/p3.jpg" alt=""></a>
-                            
-                        <!-- <div class="img-details"> -->
-                            <hr class="without-border-5px">
-                            <button class="btn btn-default fa fa-eye">&nbsp;1000</button>
-                            <button class="btn btn-default fa fa-comment">&nbsp;1000</button>
-                            <hr class="without-border-10px">
-                            <button class="btn btn-default fa fa-bookmark-o"></button>
-                            <button class="btn btn-default fa fa-cart-plus"></button>
-                            <button class="btn btn-default fa fa-share"></button>
-                        
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-4 col-sm-6 img-div">
-                        <img class="myimg img-responsive" src="images/p4.jpg" alt="">
-                        <!-- <div class="img-details"> -->
-                            <hr class="without-border-5px">
-                            <button class="btn btn-default fa fa-eye">&nbsp;1000</button>
-                            <button class="btn btn-default fa fa-comment">&nbsp;1000</button>
-                            <hr class="without-border-10px">
-                            <button class="btn btn-default fa fa-bookmark-o"></button>
-                            <button class="btn btn-default fa fa-cart-plus"></button>
-                            <button class="btn btn-default fa fa-share"></button>
-                        
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-4 col-sm-6 img-div">
-                        <img class="myimg img-responsive" src="images/p5.jpg" alt="">
-                        <!-- <div class="img-details"> -->
-                            <hr class="without-border-5px">
-                            <button class="btn btn-default fa fa-eye">&nbsp;1000</button>
-                            <button class="btn btn-default fa fa-comment">&nbsp;1000</button>
-                            <hr class="without-border-10px">
-                            <button class="btn btn-default fa fa-bookmark-o"></button>
-                            <button class="btn btn-default fa fa-cart-plus"></button>
-                            <button class="btn btn-default fa fa-share"></button>
-                        
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-4 col-sm-6 img-div">
-                        <img class="myimg img-responsive" src="images/p6.jpg" alt="">
-                        <!-- <div class="img-details"> -->
-                            <hr class="without-border-5px">
-                            <button class="btn btn-default fa fa-eye">&nbsp;1000</button>
-                            <button class="btn btn-default fa fa-comment">&nbsp;1000</button>
-                            <hr class="without-border-10px">
-                            <button class="btn btn-default fa fa-bookmark-o"></button>
-                            <button class="btn btn-default fa fa-cart-plus"></button>
-                            <button class="btn btn-default fa fa-share"></button>
-                        
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-4 col-sm-6 img-div">
-                        <img class="myimg img-responsive" src="images/p7.jpg" alt="">
-                        <!-- <div class="img-details"> -->
-                            <hr class="without-border-5px">
-                            <button class="btn btn-default fa fa-eye">&nbsp;1000</button>
-                            <button class="btn btn-default fa fa-comment">&nbsp;1000</button>
-                            <hr class="without-border-10px">
-                            <button class="btn btn-default fa fa-bookmark-o"></button>
-                            <button class="btn btn-default fa fa-cart-plus"></button>
-                            <button class="btn btn-default fa fa-share"></button>
-                        
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-4 col-sm-6 img-div">
-                        <img class="myimg img-responsive" src="images/p8.jpg" alt="">
-                        <!-- <div class="img-details"> -->
-                            <hr class="without-border-5px">
-                            <button class="btn btn-default fa fa-eye">&nbsp;1000</button>
-                            <button class="btn btn-default fa fa-comment">&nbsp;1000</button>
-                            <hr class="without-border-10px">
-                            <button class="btn btn-default fa fa-bookmark-o"></button>
-                            <button class="btn btn-default fa fa-cart-plus"></button>
-                            <button class="btn btn-default fa fa-share"></button>
-                        
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-4 col-sm-6 img-div">
-                        <img class="myimg img-responsive" src="images/p9.jpg" alt="">
-                        <!-- <div class="img-details"> -->
-                            <hr class="without-border-5px">
-                            <button class="btn btn-default fa fa-eye">&nbsp;1000</button>
-                            <button class="btn btn-default fa fa-comment">&nbsp;1000</button>
-                            <hr class="without-border-10px">
-                            <button class="btn btn-default fa fa-bookmark-o"></button>
-                            <button class="btn btn-default fa fa-cart-plus"></button>
-                            <button class="btn btn-default fa fa-share"></button>
-                        
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-4 col-sm-6 img-div">
-                        <img class="myimg img-responsive" src="images/p10.jpg" alt="">
-                        <!-- <div class="img-details"> -->
-                            <hr class="without-border-5px">
-                            <button class="btn btn-default fa fa-eye">&nbsp;1000</button>
-                            <button class="btn btn-default fa fa-comment">&nbsp;1000</button>
-                            <hr class="without-border-10px">
-                            <button class="btn btn-default fa fa-bookmark-o"></button>
-                            <button class="btn btn-default fa fa-cart-plus"></button>
-                            <button class="btn btn-default fa fa-share"></button>
-                        
-                    </div>
-                    <!--<div class="col-lg-1">
-                        jshdhs
-                    </div>
-                    <!-- <table>
-                        <tr>
-                           <td> <img class="myimg" src="images/received_1064158797108443.jpeg" alt=""></td>
-                           <td class="text-left"><button>sjdhsd</button><br><br><br></td>
-                           <td class="text-left"><button class="pull-left">sjdhsd</button></td>
-                           <td><button>sjdhsd</button></td>
-                        </tr>
-                    </table> -->
+                    <% } %>
                 </div>
             </div>
         </div>
@@ -256,7 +136,6 @@
                 </div>
             </div>
         </div>
-    <br><br><br><br><br>
     <% include ../common/footer.ejs %>
     <script>
             var slideIndex=0;
