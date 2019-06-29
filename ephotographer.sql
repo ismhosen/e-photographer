@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2019 at 12:09 AM
+-- Generation Time: Jun 30, 2019 at 12:35 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.2.17
 
@@ -21,6 +21,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `ephotographer`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `architecture_photos`
+--
+
+CREATE TABLE `architecture_photos` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `img_name` varchar(50) NOT NULL,
+  `img_des` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `architecture_photos`
+--
+
+INSERT INTO `architecture_photos` (`id`, `user_id`, `img_name`, `img_des`) VALUES
+(1, 0, 'archi1.jpg', ''),
+(2, 0, 'archi2.jpg', ''),
+(3, 0, 'archi3.jpg', ''),
+(4, 0, 'archi4.jpg', ''),
+(5, 0, 'archi5.jpg', ''),
+(6, 0, 'archi6.jpg', '');
 
 -- --------------------------------------------------------
 
@@ -191,6 +216,12 @@ INSERT INTO `wildlife_photos` (`id`, `user_id`, `img_name`, `img_des`) VALUES
 --
 
 --
+-- Indexes for table `architecture_photos`
+--
+ALTER TABLE `architecture_photos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `fashion_photos`
 --
 ALTER TABLE `fashion_photos`
@@ -223,6 +254,12 @@ ALTER TABLE `wildlife_photos`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `architecture_photos`
+--
+ALTER TABLE `architecture_photos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `fashion_photos`
