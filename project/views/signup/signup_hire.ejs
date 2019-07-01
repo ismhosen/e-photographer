@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class="text-center logo-center">
-        <a href="/home"><img src="images/black.png" width="245px;"></a>
+        <a href="/home"><img src="/images/black.png" width="245px;"></a>
     </div>
     
     <div class="center-div">
@@ -23,25 +23,35 @@
             <hr class="signup-hr">
         </div>
         <hr>
-        <font class="" size="3" ><strong>Name</strong></font><hr class="hr-5px">         
-        <input class="input-sm signin-input" type="text" placeholder="Example Myname" required><hr class="hr-22px">
-        <font class="" size="3" ><strong>Username</strong></font><hr class="hr-5px">         
-        <input class="input-sm signin-input" type="text" placeholder="example.Username" required><hr class="hr-22px">
-        <font class="" size="3" ><strong>Email</strong></font><hr class="hr-5px">         
-        <input class="input-sm signin-input" type="text" placeholder="example@gmail.com" required><hr class="hr-22px">
-        <font class="" size="3" ><strong>Password</strong></font><hr class="hr-5px">          
-        <input class="input-sm signin-input" type="password" placeholder="######" required><hr class="hr-22px">
-        <hr class="hr-22px"> 
         <div class="pull-left">
             <a href="/signup"><button class="work-button"><strong>I want to work</strong></button></a>
+            <hr class="hr-20px">            
         </div>
         <div class="pull-right">
             <a href="/signup/hire"><button class="hire-button active"><strong>I want to hire</strong></button></a>
+            <hr class="hr-20px">            
         </div>
-        <br><br><br>
-        <div class="text-center">
-            <button class="create-button"><strong>Create Account</strong></button>
-        </div>
+        <form method="POST">
+            <div class="pull-left">
+                <font class="" size="3" ><strong>Name</strong></font><hr class="hr-5px">         
+                <input class="input-sm signin-input" type="text" placeholder="Example Myname" name="name" value="<%= data.name %>"><hr class="hr-22px">
+            </div>
+            <div class="pull-right">
+                <font class="" size="3" ><strong>Username</strong></font><hr class="hr-5px">         
+                <input class="input-sm signin-input" type="text" placeholder="example.Username" name="username" value="<%= data.username %>"><hr class="hr-22px">
+            </div>
+            <div class="pull-left">
+                <font class="" size="3" ><strong>Email</strong></font><hr class="hr-5px">         
+                <input class="input-sm signin-input" type="text" placeholder="example@gmail.com" name="email" value="<%= data.email %>"><hr class="hr-22px">
+            </div>
+            <div class="pull-right">
+                <font class="" size="3" ><strong>Password</strong></font><hr class="hr-5px">          
+                <input class="input-sm signin-input" type="password" placeholder="######" name="password" value="<%= data.password %>"><hr class="hr-22px">
+            </div>
+            <div class="text-center">
+                <button class="create-button"><strong>Create Account</strong></button>
+            </div>
+        </form>
         <div class="text-center">
             <hr class="hr-or">
             <font class="" size="3" ><strong>OR</strong></font><hr class="hr-or">     

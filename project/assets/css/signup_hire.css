@@ -10,7 +10,7 @@ html
 }
 .logo-center
 {
-    margin: 30px 0 0 0;
+    margin: 70px 0 0 0;
 }
 .center-div
 {
@@ -19,7 +19,7 @@ html
     z-index: 15;
     top: 50%;
     left: 50%;
-    margin: -260px 0 0 -250px;
+    margin: -190px 0 0 -250px;
     background: #ffffff;
     padding: 25px;
     -webkit-box-shadow: 0 0 10px rgba(0, 0, 204, .3);
@@ -99,4 +99,9 @@ html
 {
     border: none;
     margin: 4px 0 4px 0;
+}
+.hr-20px
+{
+    border: none;
+    margin: 10px 0 10px 0;
 }

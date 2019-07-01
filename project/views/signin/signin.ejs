@@ -22,14 +22,16 @@
             <hr class="signin-hr">
         </div>
         <hr>
-        <font class="" size="3" ><strong>Email</strong></font><hr class="hr-5px">         
-        <input class="input-sm signin-input" type="text" placeholder="example@gmail.com" required><hr class="hr-22px">
-        <font class="" size="3" ><strong>Password</strong></font><hr class="hr-5px">          
-        <input class="input-sm signin-input" type="password" placeholder="######" required><hr class="hr-22px">
-        <hr class="hr-22px">
-        <div class="text-center">
-            <button class="signin-button"><strong>Log In</strong></button>
-        </div>
+        <form method="POST" action="/signin">
+            <font class="" size="3" ><strong>Email</strong></font><hr class="hr-5px">         
+            <input class="input-sm signin-input" type="text" placeholder="example@gmail.com" name="email" required><hr class="hr-22px">
+            <font class="" size="3" ><strong>Password</strong></font><hr class="hr-5px">          
+            <input class="input-sm signin-input" type="password" placeholder="######" name="password" required><hr class="hr-22px">
+            <hr class="hr-22px">
+            <div class="text-center">
+                <button class="signin-button"><strong>Log In</strong></button>
+            </div>
+        </form>
     </div>
 </body>
 </html>
