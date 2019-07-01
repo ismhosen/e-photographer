@@ -7,6 +7,7 @@ var expressSession  =   require('express-session');
 var home            =   require('./controllers/home');
 var signin          =   require('./controllers/signin');
 var signup          =   require('./controllers/signup');
+var signout          =   require('./controllers/signout');
 var user            =   require('./controllers/user');
 
 var app=express();
@@ -22,6 +23,7 @@ app.use(express.static('./assets'));
 app.use('/',home);
 app.use('/signin',signin);
 app.use('/signup',signup);
+app.use('/signout',signout);
 app.use('/user',user);
 
 //routing

@@ -41,7 +41,7 @@ router.post('/', function(req,res){
         password:req.body.password,
         img:req.body.img,
     }
-    req.session.user={
+    req.session.data={
         name:req.body.name,
         username:req.body.username,
         email:req.body.email,
@@ -60,6 +60,7 @@ router.post('/', function(req,res){
         user.insertUser(data, function(status){
             if(status){
                 // res.send('success')
+                req.session.user_login=true;
                 res.redirect('./user');
             }else{
                 res.send('don\'t');

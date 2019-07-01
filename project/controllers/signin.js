@@ -12,12 +12,13 @@ router.post('/', function(req,res){
 	};
 	user.validate(data, function(status){
 		if(status){
-            req.session.email = req.body.email;
             // console.log(req.session.email);
             user.checkUnique(req.body.email,function(results){
-                // var user_info=results;
-                console.log("email: ",results[1]);
-			    res.render('./user/user_home',{user_info:results[0]});
+            req.session.user_login=true;
+            req.session.data = results[0];
+                console.log("email: ",req.session.data);
+                res.redirect('./user');
+			    // res.render('./user/user_home',{user_info:results[0]});
             });
 		}else{
 			res.send('invalid username/password...');
