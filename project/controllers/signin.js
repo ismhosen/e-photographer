@@ -16,7 +16,7 @@ router.post('/', function(req,res){
             user.checkUnique(req.body.email,function(results){
             req.session.user_login=true;
             req.session.data = results[0];
-                console.log("email: ",req.session.data);
+                // console.log("email: ",req.session.data);
                 res.redirect('./user');
 			    // res.render('./user/user_home',{user_info:results[0]});
             });

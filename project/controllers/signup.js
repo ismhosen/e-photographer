@@ -15,7 +15,7 @@ router.get('/', function(req,res){
 router.get('/updated_signup/:str',function(req,res){
     // console.log(req.params.str);
     user.checkUnique(req.params.str, function(results){
-        console.log(results.length);
+        // console.log(results.length);
 		if(results.length > 0){
         // console.log(req.params.str);
         // console.log("results: ",results)

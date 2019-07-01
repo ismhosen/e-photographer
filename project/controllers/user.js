@@ -15,7 +15,7 @@ router.get('/', function(req,res){
         img:req.session.data.img,
     }
     
-    console.log(user_info);
+    // console.log(user_info);
     res.render('./user/user_home',user_info);
 });
 

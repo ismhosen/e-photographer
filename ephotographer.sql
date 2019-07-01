@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2019 at 12:35 AM
+-- Generation Time: Jul 01, 2019 at 09:00 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.2.17
 
@@ -160,6 +160,39 @@ INSERT INTO `sports_photos` (`id`, `user_id`, `img_name`, `img_des`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `img` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `name`, `username`, `email`, `password`, `img`) VALUES
+(1, 'ismail', 'ismhosen', 'ismhosen@gmail.com', '1234', ''),
+(2, 'hosen', 'hosenism', 'hosenism@gmail.com', '4321', ''),
+(19, 'askj', 'sks', 'sd', 'sdh', '2.png'),
+(20, 'asba', 'ams', ';kwj', 'alsjdna', 'dp2.jpg'),
+(21, 'a', 'asa', 'ass', 'asa', 'dp2.jpg'),
+(22, 'as', 'assdsdkl', 'sdkwy', 'kshdyie', 'dp1.jpg'),
+(23, 'a', 'asasa', 'asad', 'asd', 'black.png'),
+(24, 'asas', 'assad', 'sdsdc', 'sdsd', 'dp2.jpg'),
+(25, 'aa', 'asas', 'sdsdfs', 'sdfwefe', 'dp1.jpg'),
+(26, 'as', 'sdfjk', 'sdjwe', 'shd', 'dp1.jpg'),
+(27, '1', '1', '1', '1', 'fashion2.jpg'),
+(28, '2', '222', '22', '2', 'fashion2.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `wedding_photos`
 --
 
@@ -240,6 +273,14 @@ ALTER TABLE `recommend_photos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
 -- Indexes for table `wedding_photos`
 --
 ALTER TABLE `wedding_photos`
@@ -277,7 +318,13 @@ ALTER TABLE `image_details`
 -- AUTO_INCREMENT for table `recommend_photos`
 --
 ALTER TABLE `recommend_photos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `wedding_photos`

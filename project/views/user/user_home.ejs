@@ -3,13 +3,84 @@
 <head>
     <% include ../common/link.ejs %>
     <link rel="stylesheet" href="/css/user_header.css">
+    <link rel="stylesheet" href="/css/user_home.css">
     <title><%= user_info.name %></title>
 </head>
 <body>
     <% include ../common/user_header.ejs %>
-    sdhjsdjj
-    <%= user_info.name%>
-    <%= user_info.username%>
-    <%= user_info.email%>
-    <%= user_info.img%>
+    
+    <slider>
+        <div class="slider">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 slider-index">
+                        <div class="slideshow-container">
+                            <div class="myslides fade">
+                                <div class="numbertext">1/3</div>
+                                <img src="images/1.png" style="width: 100%">
+                                <div class="text">Caption One</div>
+                            </div>
+                            <div class="myslides fade">
+                                <div class="numbertext">2/3</div>
+                                <img src="images/2.png" style="width: 100%">
+                                <div class="text">Caption two</div>
+                            </div>
+                            <div class="myslides fade">
+                                <div class="numbertext">3/3</div>
+                                <img src="images/3.png" style="width: 100%">
+                                <div class="text">Caption three</div>
+                            </div>
+                        </div><br>
+                        <div style="text-align: center">
+                            <span class="dot" onclick="currenslide(1)"></span>
+                            <span class="dot" onclick="currenslide(2)"></span>
+                            <span class="dot" onclick="currenslide(3)"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </slider>
+    <div class="slider-content text-center">
+        <font size="6"><strong>HIRE PHOTOGRAPHER</strong></font><br>
+        <font size="6"><strong>WHERE YOU NEED</strong></font><br>
+        <font >Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum<br>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum </font><br><hr class="without-border-upper-slider-hr">
+        <button class="freelance-btn">Work as freelance</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="hire-btn">Want to HIRE</button>
+    </div>
+
+
+
+    <script>
+        var slideIndex=0;
+    showSlides();
+    function currenslide(n)
+    {
+        showSlides(slideIndex=n);
+    }
+    
+    function showSlides()
+    {
+        var i;
+        var slides=document.getElementsByClassName("myslides");
+        var dots=document.getElementsByClassName("dot");
+        for(i=0;i<slides.length;i++)
+        {
+            slides[i].style.display="none";
+        }
+        slideIndex++;
+        if(slideIndex>slides.length)
+        {
+            slideIndex=1;
+        }
+        for(i=0;i<dots.length;i++)
+        {
+            dots[i].className=dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display="block";
+        dots[slideIndex-1].className +=" active";
+        setTimeout(showSlides,2000);
+    }
+
+    </script>
 </body>
