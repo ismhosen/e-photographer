@@ -97,3 +97,111 @@
 {
     color: blue;
 }
+.stock-photos
+{
+    margin: 20px 0 0px 0;
+}
+
+.btn-active
+{
+    border: none;
+    background: none;
+    
+}
+.recommend-hr
+{   
+    width: 138px;
+    border: none;
+    margin:10px 0 0px 0; 
+    border-bottom: 3px solid green;  
+}
+.wedding-hr
+{
+    width: 112px;
+    border: none;
+    margin:10px 0 0px 0; 
+    border-bottom: 3px solid green;
+}
+.wildlife-hr
+{
+    width: 112px;
+    border: none;
+    margin:10px 0 0px 0; 
+    border-bottom: 3px solid green;
+}
+.fashion-hr
+{
+    width: 110px;
+    border: none;
+    margin:10px 0 0px 0; 
+    border-bottom: 3px solid green;
+}
+.sports-hr
+{
+    width: 101px;
+    border: none;
+    margin:10px 0 0px 0; 
+    border-bottom: 3px solid green;
+}
+.archi-hr
+{
+    width: 135px;
+    border: none;
+    margin:10px 0 0px 0; 
+    border-bottom: 3px solid green;
+}
+.historic-border-bottom
+{   
+    width: 108px;
+    border: none;
+    margin:10px 0 0px 0; 
+    border-bottom: 3px solid green;
+    display: none;
+}
+#wedding-photos{
+    display: none;
+}
+/* .img-details
+{
+    display: inline;
+    height: 100px;
+    background: #000;
+} */
+.img-div img
+{
+    cursor: pointer;
+}
+.img-div
+{
+    border: 1px solid green;
+    width: 270px;
+    padding: 20px 35px;
+    margin:0 20px 20px 0; 
+}
+.img-div:hover
+{
+    /* border: none; */
+    border-radius: 5px;
+    background: #000;
+    transition: all .1s ease-in-out; 
+}
+.myimg
+{
+    width: 300px;
+    margin: 0 0 20px 0;
+    height: 150px;
+    object-fit: cover;
+    object-position: center center;
+}
+.btn-default:hover
+{
+    border: none;
+    background: green;
+    color: #fff;
+}
+.gallery-div
+{
+    float: left;
+    margin: 0px 30px 0 0;
+
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../common/link.ejs %>
+    <link rel="stylesheet" href="/css/user_header.css">
+    <link rel="stylesheet" href="/css/user_profile.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <title><%= user_info.name %></title>
+</head>
+<body>
+    <% include ../common/user_header.ejs %>
+        <img class="slider-img" src="/images/signinbg.png">
+        <div>
+            
+        </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 profile-class text-center">
+                <img class="img-responsive user_profile_img" src="/images/<%= user_info.img %>">
+                <span class="fa fa-facebook-square profileIcon"></span>
+                <span class="fa fa-instagram profileIcon"></span>
+                <span class="fa fa-twitter profileIcon"></span><br>
+                <span class="text-design">/<%= user_info.username %></span><hr class="text-desing-hr">
+                <span class="text-design" style="text-transform: uppercase"><%= user_info.name %></span><hr class="text-desing-hr">
+                <span class="text-design"><%= user_info.email %></span>
+                <hr class="text-desing-hr">
+                <button class="btn btn-default">Update Profile</button>
+            </div>
+            <div class="col-md-4 total-photo text-center">
+                <!-- <span style="font-size: 20px;letter-spacing:.2em">total</span> -->
+                <hr class="text-desing-hr">
+                <span class="fa fa-image total-photo-icon"></span>
+                    <hr class="text-desing-hr">
+                    <span style="font-size: 30px; ">121</span>
+                
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="div1">
+                    <span class="fa fa-eye common-icon"></span>
+                    <hr class="text-desing-hr">
+                    <span style="font-size: 30px; ">121</span>
+                </div>
+                <div class="div2">
+                    <span class="fa fa-thumbs-o-up common-icon"></span>
+                    <hr class="text-desing-hr">
+                    <span style="font-size: 30px; ">121</span>
+                </div>
+                <div class="div3">
+                    <span class="fa fa-comment common-icon"></span>
+                    <hr class="text-desing-hr">
+                    <span style="font-size: 30px; ">121</span>
+                </div>
+                <div class="div4">
+                    <span class="fa fa-share common-icon"></span>
+                    <hr class="text-desing-hr">
+                    <span style="font-size: 30px; ">121</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <% include ../common/footer.ejs %>
+</body>
+</html>

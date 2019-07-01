@@ -4,11 +4,11 @@
     <% include ../common/link.ejs %>
     <link rel="stylesheet" href="/css/user_header.css">
     <link rel="stylesheet" href="/css/user_home.css">
+    <link rel="stylesheet" href="/css/footer.css">
     <title><%= user_info.name %></title>
 </head>
 <body>
     <% include ../common/user_header.ejs %>
-    
     <slider>
         <div class="slider">
             <div class="container-fluid">
@@ -48,9 +48,63 @@
         <button class="freelance-btn">Work as freelance</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button class="hire-btn">Want to HIRE</button>
     </div>
+    <div class="stock-photos">
+        <div class='modal  fade in' id="loading" hidden style="position:absolute; min-height:500px">
+            <img style="position: absolute;
+                top: 20%;
+                left: 50%;
+                margin-top: -50px;
+                margin-left: -50px;"
+                alt="" src="images/loading.gif"
+            />
+        </div>
+        <div class="container" id="main-contents">
+                <!-- <font size="4"><strong>How to hire a Freelancer</strong></font><hr class="how-to-hr"> -->
+                <div class="recommend-div gallery-div" id="recommend-text" onclick="fetchData('recommend_photos')">
+                    <button class=" btn-active">Recommend Photos</button>
+                    <hr class="recommend-hr">                        
+                </div>
+                <div class="wedding-div gallery-div" id="wedding-text" onclick="fetchData('wedding_photos')">
+                    <button class=" btn-active">Wedding Photos</button>
+                                            
+                </div>
+                <div class="wildlife-div gallery-div" id="wildlife-text" onclick="fetchData('wildlife_photos')">
+                    <button class=" btn-active">Wild-Life Photos</button>
+                </div>
+                <div class="fashion-div gallery-div" id="fashion-text" onclick="fetchData('fashion_photos')">
+                    <button class=" btn-active">Fashion Photos</button>
+                </div>
+                <div class="sports-div gallery-div" id="sports" onclick="fetchData('sports_photos')">
+                    <button class=" btn-active">Sports Photos</button>
+                </div>
+                <div class="architect-div gallery-div" id="architect" onclick="fetchData('architecture_photos')">
+                    <button class=" btn-active">Architecture Photos</button>
+                </div>
+                <div class="historic-div gallery-div">
+                    <button class=" btn-active">Historic Photos</button>
+                </div>
+                <br>
+                <br>
+                <hr>
+            <div class="row" id="recommend-photos">
+                <% for(var i=0; i < all_image.length; i++){ %>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-sm-6 img-div">
+                    <a href="image_details/<%= all_image[i].id %>/<%= category %>"><img class="myimg img-responsive" src="images/<%= all_image[i].img_name %>" alt=""></a>
+                    <hr class="without-border-5px">
+                    <button class="btn btn-default fa fa-eye">&nbsp;1000</button>
+                    <button class="btn btn-default fa fa-comment">&nbsp;1000</button>
+                    <hr class="without-border-10px">
+                    <button class="btn btn-default fa fa-bookmark-o"></button>
+                    <button class="btn btn-default fa fa-cart-plus"></button>
+                    <button class="btn btn-default fa fa-share"></button>
+                </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
 
-
-
+    <% include ../common/footer.ejs %>
+    <script src="/js/home.js"></script>
     <script>
         var slideIndex=0;
     showSlides();

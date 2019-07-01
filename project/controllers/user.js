@@ -1,5 +1,5 @@
 var express=require('express');
-// var user = require.main.require('./models/user_model');
+var image = require.main.require('./models/image-model');
 var router=express.Router();
 
 router.get('/', function(req,res){
@@ -14,9 +14,15 @@ router.get('/', function(req,res){
         email:req.session.data.email,
         img:req.session.data.img,
     }
+    image.getRecommendPhotos(function(results){
+        res.render('./user/user_home',{all_image:results,user_info,category:'recommend_photos'});
+
+    })
     
     // console.log(user_info);
-    res.render('./user/user_home',user_info);
 });
 
+router.get('/profile', function(req, res){
+    res.render('./user/user_profile');
+});
 module.exports=router;
