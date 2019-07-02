@@ -1,0 +1,9 @@
+<form action="">
+    <label>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label><input class="update-input" type="text" name="name" value="<%= user_info.name %>"><hr class="hr-20px">
+    <label>Username: </label><input class="update-input" type="text" name="name" value="<%= user_info.username %>"><hr class="hr-20px">
+    <label>Email: </label><input class="email-input" type="text" name="enail" value="<%= user_info.email %>" readonly><hr class="hr-20px">
+    <label>Facebook: </label><input class="update-input" type="text" name="fb" value="" placeholder="paste your facebook link"><hr class="hr-20px">
+    <label>Instagram: </label><input class="update-input" type="text" name="insta" value="" placeholder="paste your instagram link"><hr class="hr-20px">
+    <label>Passowrd: </label><input class="update-input" type="password" name="password" value="<%= user_info.password %>"><br><br><hr class="hr-20px">
+    <button type="button" class="btn btn-success" onclick="update_profile()">Update</button>
+</form>
