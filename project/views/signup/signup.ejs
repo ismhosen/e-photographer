@@ -56,6 +56,7 @@
                 <font class="" size="3" ><strong>Please choose your profile picture</strong></font><hr class="hr-5px">          
                 <input class="input-sm signin-input" type="file" placeholder="######" name="img" value="<%= data.img %>" required><hr class="hr-22px">
             </div>
+            <input type="hidden" value="photographer" name="type">
             <% if(typeof errors != "undefined"){ %>
                 <% errors.forEach(function(err){ %>
                     <%= err.msg %><br>

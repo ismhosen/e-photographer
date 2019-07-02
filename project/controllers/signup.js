@@ -40,6 +40,7 @@ router.post('/', function(req,res){
         email:req.body.email,
         password:req.body.password,
         img:req.body.img,
+        type:req.body.type,
     }
     req.session.data={
         name:req.body.name,
@@ -47,6 +48,7 @@ router.post('/', function(req,res){
         email:req.body.email,
         password:req.body.password,
         img:req.body.img,
+        type:req.body.type,
     }
     // console.log('username: '+req.session.data.username);
     req.checkBody('username','Name cann\'t be empty').notEmpty();

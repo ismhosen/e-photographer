@@ -8,7 +8,7 @@ module.exports = {
         });
     },
     insertUser: function(user, callback){
-        var sql="insert into user values ('','"+user.name+"','"+user.username+"','"+user.email+"','"+user.password+"','"+user.img+"')";
+        var sql="insert into user values ('','"+user.name+"','"+user.username+"','"+user.email+"','"+user.password+"','"+user.img+"','"+user.type+"')";
         console.log(sql);
         db.execute(sql, function(status){
         console.log(status);

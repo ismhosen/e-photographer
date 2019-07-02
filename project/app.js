@@ -8,6 +8,7 @@ var signin          =   require('./controllers/signin');
 var signup          =   require('./controllers/signup');
 var signout          =   require('./controllers/signout');
 var user            =   require('./controllers/user');
+var client            =   require('./controllers/client');
 
 var app=express();
 
@@ -24,6 +25,7 @@ app.use('/signin',signin);
 app.use('/signup',signup);
 app.use('/signout',signout);
 app.use('/user',user);
+app.use('/client',client);
 
 //routing
 

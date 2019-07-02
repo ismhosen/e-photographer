@@ -25,27 +25,36 @@
                 </div> 
             </div>
         </div>
-        <div class="container">
+        <div class='modal  fade in' id="loading" hidden style="position:absolute; min-height:500px">
+                <img style="position: absolute;
+                    top: 20%;
+                    left: 50%;
+                    margin-top: -50px;
+                    margin-left: -50px;"
+                    alt="" src="/images/loading.gif"
+                />
+            </div>
+        <div class="container" id="main-contents">
             <div class="row">
                 <hr class="hr-20px">
-                <div class="phtos profile-gallery-div" id="recommend-text" onclick="fetchData('photos')">
-                    <button class="profile-btn btn-active">Photos</button>
+                <div class="phtos profile-gallery-div" id="recommend-text" onclick="clickPhotos()">
+                    <button class="profile-btn photos-btn btn-active">Photos</button>
                     <hr class="recommend-hr">                        
                 </div>
-                <div class="projects profile-gallery-div" id="wedding-text" onclick="fetchData('projects')">
-                    <button class="profile-btn btn-inactive">Projects</button>  
-                </div>
-                <div class="events profile-gallery-div" id="wildlife-text" onclick="fetchData('events')">
-                    <button class="profile-btn btn-inactive">Events</button>
-                </div>
-                <div class="overview profile-gallery-div" id="wildlife-text" onclick="fetchData('overview')">
-                    <button class="profile-btn btn-inactive">Overview</button>
-                </div>
+                <div class="projects profile-gallery-div" id="wedding-text" onclick="clickProjects()">
+                        <button class="profile-btn btn-inactive">Projects</button>  
+                    </div>
+                    <div class="events profile-gallery-div" id="wildlife-text" onclick="clickEvents()">
+                        <button class="profile-btn btn-inactive">Events</button>
+                    </div>
+                    <div class="overview profile-gallery-div" id="wildlife-text" onclick="clickOverview()">
+                        <button class="profile-btn btn-inactive">Overview</button>
+                    </div>
                 <div class="about profile-gallery-div" id="wildlife-text"            onclick="clickEdit()">
-                    <button class="profile-btn btn-inactive">Update Profile</button>
+                    <button class="profile-btn update-btn btn-inactive">Update Profile</button>
                 </div>
             </div>
-            <div id="main-contents">
+            <div id="">
                 <div class="responsive">
                     <div class="gallery">
                         <a target="_blank" href="img_5terre.jpg">
@@ -91,53 +100,6 @@
             </div>
             
         </div>
-
-    <!-- <div class="container">
-        <div class="row">
-            <div class="col-md-4 profile-class text-center">
-                <img class="img-responsive user_profile_img" src="/images/<%= user_info.img %>">
-                <span class="fa fa-facebook-square profileIcon"></span>
-                <span class="fa fa-instagram profileIcon"></span>
-                <span class="fa fa-twitter profileIcon"></span><br>
-                <span class="text-design">/<%= user_info.username %></span><hr class="text-desing-hr">
-                <span class="text-design" style="text-transform: uppercase"><%= user_info.name %></span><hr class="text-desing-hr">
-                <span class="text-design"><%= user_info.email %></span>
-                <hr class="text-desing-hr">
-                <button class="btn btn-default">Update Profile</button>
-            </div>
-            <div class="col-md-4 total-photo text-center">
-                <hr class="text-desing-hr">
-                <span class="fa fa-image total-photo-icon"></span>
-                    <hr class="text-desing-hr">
-                    <span style="font-size: 30px; ">121</span>
-                
-            </div>
-            <div class="col-md-4 text-center">
-                <div class="div1">
-                    <span class="fa fa-eye common-icon"></span>
-                    <hr class="text-desing-hr">
-                    <span style="font-size: 30px; ">121</span>
-                </div>
-                <div class="div2">
-                    <span class="fa fa-thumbs-o-up common-icon"></span>
-                    <hr class="text-desing-hr">
-                    <span style="font-size: 30px; ">121</span>
-                </div>
-                <div class="div3">
-                    <span class="fa fa-comment common-icon"></span>
-                    <hr class="text-desing-hr">
-                    <span style="font-size: 30px; ">121</span>
-                </div>
-                <div class="div4">
-                    <span class="fa fa-share common-icon"></span>
-                    <hr class="text-desing-hr">
-                    <span style="font-size: 30px; ">121</span>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-
 
     <% include ../common/footer.ejs %>
     <script src="/js/user_profile.js"></script>

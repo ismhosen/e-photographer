@@ -15,10 +15,17 @@ router.get('/', function(req,res){
         email:req.session.data.email,
         img:req.session.data.img,
         password:req.session.data.password,
+        type:req.session.data.type,
     }
     image.getRecommendPhotos(function(results){
-        res.render('./user/user_home',{all_image:results,user_info,category:'recommend_photos'});
-
+        if(user_info.type=="photographer"){
+            res.render('./user/user_home',{all_image:results,user_info,category:'recommend_photos'});
+        }
+        else if(user_info.type=="client"){
+            // res.render('./user/client_home',{all_image:results,user_info,category:'recommend_photos'});
+            res.redirect('./client')
+        }
+        
     })
     
     // console.log(user_info);
@@ -36,12 +43,24 @@ router.get('/profile', function(req, res){
 router.get('/ajax_edit/',function(req,res){	
     return res.render('./user/ajax_edit');	
 });
+router.get('/ajax_photos/',function(req,res){	
+    return res.render('./user/ajax_photos');	
+});
+router.get('/ajax_overview/',function(req,res){	
+    return res.render('./user/ajax_overview');	
+});
+router.get('/ajax_events/',function(req,res){	
+    return res.render('./user/ajax_events');	
+});
+router.get('/ajax_projects/',function(req,res){	
+    return res.render('./user/ajax_projects');	
+});
 
-router.get('/ajax_update/',function(req,res){	
+router.post('/ajax_update/',function(req,res){	
     // return res.render('./user/ajax_edit');
     
     console.log('controller hello');
-    console.log(req.body.name);
+    console.log(req.body.email);
     // alert('hello');
 });
 
