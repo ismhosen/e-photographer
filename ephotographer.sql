@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2019 at 09:00 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.2.17
+-- Generation Time: Jul 03, 2019 at 07:06 PM
+-- Server version: 10.1.40-MariaDB
+-- PHP Version: 7.1.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -169,26 +169,25 @@ CREATE TABLE `user` (
   `username` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `img` varchar(100) NOT NULL
+  `img` varchar(100) NOT NULL,
+  `type` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `username`, `email`, `password`, `img`) VALUES
-(1, 'ismail', 'ismhosen', 'ismhosen@gmail.com', '1234', ''),
-(2, 'hosen', 'hosenism', 'hosenism@gmail.com', '4321', ''),
-(19, 'askj', 'sks', 'sd', 'sdh', '2.png'),
-(20, 'asba', 'ams', ';kwj', 'alsjdna', 'dp2.jpg'),
-(21, 'a', 'asa', 'ass', 'asa', 'dp2.jpg'),
-(22, 'as', 'assdsdkl', 'sdkwy', 'kshdyie', 'dp1.jpg'),
-(23, 'a', 'asasa', 'asad', 'asd', 'black.png'),
-(24, 'asas', 'assad', 'sdsdc', 'sdsd', 'dp2.jpg'),
-(25, 'aa', 'asas', 'sdsdfs', 'sdfwefe', 'dp1.jpg'),
-(26, 'as', 'sdfjk', 'sdjwe', 'shd', 'dp1.jpg'),
-(27, '1', '1', '1', '1', 'fashion2.jpg'),
-(28, '2', '222', '22', '2', 'fashion2.jpg');
+INSERT INTO `user` (`id`, `name`, `username`, `email`, `password`, `img`, `type`) VALUES
+(1, 'ismail', 'ismhosen', 'ismhosen@gmail.com', '1234', '', 'client'),
+(27, '1', '1', '1', '1', 'fashion2.jpg', 'client'),
+(29, 'Ismail Hosen', 'ismhosenn', '3', '3', 'dp1.jpg', 'photographer'),
+(30, '5', '5', '5', '5', 'dp2.jpg', 'photographer'),
+(31, '7', '7', '7', '7', 'dp1.jpg', 'client'),
+(32, '8', '8', '8', '8', 'dp1.jpg', 'photographer'),
+(33, '9', '9', '9', '9', '2.png', 'client'),
+(35, '10', '10', '10', '10', 'archi2.jpg', 'photographer'),
+(36, '11', '11', '11', '11', 'fashion1.jpg', 'client'),
+(37, '12', '12', '12', '12', 'fashion2.jpg', 'client');
 
 -- --------------------------------------------------------
 
@@ -324,7 +323,7 @@ ALTER TABLE `recommend_photos`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `wedding_photos`
