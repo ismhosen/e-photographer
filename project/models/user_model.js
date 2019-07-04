@@ -16,7 +16,7 @@ module.exports = {
 		});
     },
     insertFeedback: function(user, callback){
-        var sql="insert into feedback values ('','"+user.email+"','"+user.feedback+"'')";
+        var sql="insert into feedback values ('','"+user.email+"','"+user.feedback+"')";
         console.log(sql);
         db.execute(sql, function(status){
         console.log(status);

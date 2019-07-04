@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2019 at 07:06 PM
+-- Generation Time: Jul 04, 2019 at 07:25 PM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.1.29
 
@@ -72,6 +72,33 @@ INSERT INTO `fashion_photos` (`id`, `user_id`, `img_name`, `img_des`) VALUES
 (5, 0, 'fashion5.jpg', ''),
 (6, 0, 'fashion6.jpg', ''),
 (7, 0, 'fashion7.jpg', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `id` int(11) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `feedback` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`id`, `email`, `feedback`) VALUES
+(1, 'sdfs', 'sdfsdfsd'),
+(2, 'sdf', 'sdfsdfsdf'),
+(3, 'dfgdf', 'dfgdfgdfgdfg'),
+(4, 'sdfsdf', 'sdfsdfsdfsdf'),
+(5, '1', 'dfgd'),
+(6, 'f', 'trrtyrt'),
+(7, 'df', 'werwe'),
+(8, 'sdf', '2w3rw3rw'),
+(9, 'sd', 'w4erw3');
 
 -- --------------------------------------------------------
 
@@ -260,6 +287,12 @@ ALTER TABLE `fashion_photos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `feedback`
+--
+ALTER TABLE `feedback`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `image_details`
 --
 ALTER TABLE `image_details`
@@ -306,6 +339,12 @@ ALTER TABLE `architecture_photos`
 --
 ALTER TABLE `fashion_photos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `feedback`
+--
+ALTER TABLE `feedback`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `image_details`

@@ -8,25 +8,27 @@ router.get('/', function(req,res){
     if(req.session.user_login!=true)
     {
         res.redirect('./home');
-    }
-    user_info={
-        name:req.session.data.name,
-        username:req.session.data.username,
-        email:req.session.data.email,
-        img:req.session.data.img,
-        password:req.session.data.password,
-        type:req.session.data.type,
-    }
-    image.getRecommendPhotos(function(results){
-        if(user_info.type=="photographer"){
-            res.render('./user/user_home',{all_image:results,user_info,category:'recommend_photos'});
+    }else{
+        user_info={
+            name:req.session.data.name,
+            username:req.session.data.username,
+            email:req.session.data.email,
+            img:req.session.data.img,
+            password:req.session.data.password,
+            type:req.session.data.type,
         }
-        else if(user_info.type=="client"){
-            // res.render('./user/client_home',{all_image:results,user_info,category:'recommend_photos'});
-            res.redirect('./client')
-        }
-        
-    })
+        image.getRecommendPhotos(function(results){
+            if(user_info.type=="photographer"){
+                res.render('./user/user_home',{all_image:results,user_info,category:'recommend_photos'});
+            }
+            else if(user_info.type=="client"){
+                // res.render('./user/client_home',{all_image:results,user_info,category:'recommend_photos'});
+                res.redirect('./client')
+            }
+            
+        })
+    }
+    
     
     // console.log(user_info);
 });
@@ -66,10 +68,22 @@ router.post('/ajax_update/',function(req,res){
 router.post('/feedback/',function(req,res){	
     console.log('feedback',req.body);
     var data={
-        // emaill=req.body.email,
-        // feedback=req.body.feedback
+        email:req.body.email,
+        feedback:req.body.feedback
     }
-    // user.insertFeedback()
+    user.insertFeedback(data, function(status){
+        if(status){
+            if(req.session.user_login==true)
+            {
+                res.redirect('/user');
+            }else{
+                res.redirect('../home');
+            }
+        }else{
+            res.send('don\'t');
+        }    
+    })
+    
 });
 
 module.exports=router;
