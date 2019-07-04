@@ -63,5 +63,13 @@ router.post('/ajax_update/',function(req,res){
     console.log(req.body.email);
     // alert('hello');
 });
+router.post('/feedback/',function(req,res){	
+    console.log('feedback',req.body);
+    var data={
+        // emaill=req.body.email,
+        // feedback=req.body.feedback
+    }
+    // user.insertFeedback()
+});
 
 module.exports=router;

@@ -30,6 +30,9 @@ router.get('/update_home/:category',function(req,res){
 		}
 	});
 });
+router.get('/home/signinCheck', function(req,res){
+    res.redirect('/signin');  
+});
 
 router.get('/image_details/:id/:category',function(req,res){
     // image.getImageById(req.params.id, function(result){

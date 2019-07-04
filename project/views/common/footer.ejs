@@ -22,12 +22,15 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                 <font size="5"><strong>Feedback</strong></font>
                 <hr>
-                <hr class="without-border-20px">
-                <input type="text" class="input-sm feedback-input" required placeholder="Enter your email...">
-                <hr class="without-border-10px">
-                <textarea class="input-sm feedback-input" placeholder="Enter your feedback..."></textarea>
-                <hr class="without-border-10px">
-                <button class="btn btn-success">Submit</button>
+                <hr class="without-border-20px">hggfghf
+                <form method="POST" action="/user/feedback">
+                    <input type="text" class="input-sm feedback-input" required placeholder="Enter your email..." name="email">
+                    <hr class="without-border-10px">
+                    <textarea class="input-sm feedback-input" placeholder="Enter your feedback..." required name="feedback"></textarea>
+                    <hr class="without-border-10px">
+                    <button class="btn btn-success">Submit</button>
+                </form>
+                
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                 <font size="5"><strong>Contacts</strong></font>
