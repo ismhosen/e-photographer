@@ -9,7 +9,7 @@ function checkunique(str)
         success: function(data){
         //    $("#resultarea").text(data);
         // alert('hello');
-        console.log(data);
+        // console.log(data);
         if(data==0)
         {
             $('.error').css('display','none');

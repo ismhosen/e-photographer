@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 05, 2019 at 08:43 AM
+-- Generation Time: Jul 05, 2019 at 01:24 PM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.1.29
 
@@ -111,7 +111,8 @@ INSERT INTO `feedback` (`id`, `email`, `feedback`) VALUES
 (6, 'f', 'trrtyrt'),
 (7, 'df', 'werwe'),
 (8, 'sdf', '2w3rw3rw'),
-(9, 'sd', 'w4erw3');
+(9, 'sd', 'w4erw3'),
+(10, 'sdf', 'ghjtgh');
 
 -- --------------------------------------------------------
 
@@ -221,19 +222,21 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `username`, `email`, `password`, `img`, `tagline`, `facebook`, `instagram`, `type`) VALUES
-(1, 'ismail', 'ismhosen', 'ismhosen@gmail.com', '1234', '', '', '', '', 'client'),
-(27, '1', '1', '1', '1', 'fashion2.jpg', '', '', '', 'client'),
-(29, 'Ismail Hosen', 'ismhosenn', '3', '3', 'dp1.jpg', '', '', '', 'photographer'),
-(30, '5', '5', '5', '5', 'dp2.jpg', '', '', '', 'photographer'),
-(31, '7', '7', '7', '7', 'dp1.jpg', '', '', '', 'client'),
-(32, '8', '8', '8', '8', 'dp1.jpg', '', '', '', 'photographer'),
-(33, '9', '9', '9', '9', '2.png', '', '', '', 'client'),
-(35, '10', '10', '10', '10', 'archi2.jpg', '', '', '', 'photographer'),
-(36, '11', '11', '11', '11', 'fashion1.jpg', '', '', '', 'client'),
-(37, '12', '12', '12', '12', 'fashion2.jpg', '', '', '', 'client'),
-(38, '21', '21', '21', '321', 'add-image.png', '', '', '', 'photographer'),
-(39, '22', '22', '22', '22', 'black.png', '', '', '', 'photographer'),
-(40, '24', '24', '24', '24', 'archi6.jpg', '', '', '', 'photographer');
+(1, 'ismail', '', 'ismhosen@gmail.com', '1234', '', '', '', '', 'client'),
+(27, '1', '', '1', '1', 'fashion2.jpg', '', '', '', 'client'),
+(29, 'Ismail Hosen ', 'ism', '3', '3', 'dp1.jpg', 'capture', '/ismhosenn', '/ismhosenn', 'photographer'),
+(30, '5', '', '5', '5', 'dp2.jpg', '', '', '', 'photographer'),
+(31, '7', '', '7', '7', 'dp1.jpg', '', '', '', 'client'),
+(32, '8', '', '8', '8', 'dp1.jpg', '', '', '', 'photographer'),
+(33, '9', '', '9', '9', '2.png', '', '', '', 'client'),
+(35, '10', '', '10', '10', 'archi2.jpg', '', '', '', 'photographer'),
+(36, '11', '', '11', '11', 'fashion1.jpg', '', '', '', 'client'),
+(37, '12', '', '12', '12', 'fashion2.jpg', '', '', '', 'client'),
+(38, '21', '', '21', '321', 'add-image.png', '', '', '', 'photographer'),
+(39, '22', '', '22', '22', 'black.png', '', '', '', 'photographer'),
+(40, '24', '', '24', '24', 'archi6.jpg', '', '', '', 'photographer'),
+(41, '211', '211', '211', '211', 'fashion3.jpg', 'my tagline', '/myfacebook', '/myinstagram', 'photographer'),
+(42, '2111', '2111', '2111', '2111', 'fashion3.jpg', '', '', '', 'client');
 
 -- --------------------------------------------------------
 
@@ -335,7 +338,6 @@ ALTER TABLE `recommend_photos`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
@@ -376,7 +378,7 @@ ALTER TABLE `fashion_photos`
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `image_details`
@@ -394,7 +396,7 @@ ALTER TABLE `recommend_photos`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `wedding_photos`

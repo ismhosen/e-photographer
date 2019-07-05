@@ -20,7 +20,7 @@ router.get('/', function(req,res){
             instagram:req.session.data.instagram,
             type:req.session.data.type,
         }
-        console.log(user_info);
+        // console.log(user_info);
         image.getRecommendPhotos(function(results){
             if(user_info.type=="photographer"){
                 res.render('./user/user_home',{all_image:results,user_info,category:'recommend_photos'});
@@ -38,8 +38,8 @@ router.get('/', function(req,res){
 });
 router.post('/',function(req,res){	
     // return res.render('./user/ajax_edit');
-    console.log(req.body);
-    console.log("id",user_info.email);
+    // console.log(req.body);
+    // console.log("id",user_info.email);
     var data={
         category:req.body.category,
         img:req.body.img,
@@ -51,6 +51,10 @@ router.post('/',function(req,res){
 
         })
     });
+});
+router.post('/update',function(req,res){	
+    // return res.render('./user/ajax_edit');
+    res.send('hello')
 });
 
 router.get('/profile', function(req, res){
@@ -80,13 +84,39 @@ router.get('/ajax_projects/',function(req,res){
 
 router.post('/ajax_update/',function(req,res){	
     // return res.render('./user/ajax_edit');
-    
-    console.log('controller hello');
-    console.log(req.body.email);
+    // console.log('controller hello',updated_data.email);
+    // console.log('email',req.body.tagline);
     // alert('hello');
+    user.update_user_info(req.body, function(status){
+        if(status){
+            req.session.new={
+                name:req.body.name,
+                username:req.body.username,
+                email:req.body.email,
+                password:req.body.password,
+                tagline:req.body.tagline,
+                facebook:req.body.facebook,
+                instagram:req.body.instagram,
+            }
+            user_info={
+                name:req.session.new.name,
+                username:req.session.new.username,
+                email:req.session.data.email,
+                img:req.session.data.img,
+                password:req.session.data.password,
+                tagline:req.session.new.tagline,
+                facebook:req.session.new.facebook,
+                instagram:req.session.new.instagram,
+                type:req.session.data.type,
+            }
+        // console.log("ajax file");
+
+            return res.render('./user/ajax_edit');
+        }
+    })
 });
 router.post('/feedback/',function(req,res){	
-    console.log('feedback',req.body);
+    // console.log('feedback',req.body);
     var data={
         email:req.body.email,
         feedback:req.body.feedback

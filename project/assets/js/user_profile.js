@@ -80,10 +80,28 @@ function clickProjects()
 }
 function update_profile()
 {
+    var data={
+         name: $("input[name=name]").val(),
+        username: $("input[name=username]").val(),
+        tagline: $("input[name=tagline]").val(),
+        email: $("input[name=email]").val(),
+        tagline: $("input[name=tagline]").val(),
+        facebook: $("input[name=facebook]").val(),
+        instagram: $("input[name=instagram]").val(),
+    }
+//    var name= $("input[name=name]").val();
+//    var username= $("input[name=username]").val();
+//    var tagline= $("input[name=tagline]").val();
+//    var email= $("input[name=email]").val();
+//    var tagline= $("input[name=tagline]").val();
+//    var facebook= $("input[name=facebook]").val();
+//    var instagram= $("input[name=instagram]").val();
+//    alert(name+' '+username+' '+tagline+' '+email+' '+tagline+' '+facebook+' '+instagram);
+// alert(data.email);
     $.ajax({
         type: "POST",
         url: "/user/ajax_update/",
-        // data: data,
+        data: data,
         // cache: true,
         success: function(data){
         //    $("#resultarea").text(data);

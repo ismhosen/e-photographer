@@ -44,5 +44,15 @@ module.exports = {
 				callback(false);
 			}
 		});
+    },
+    update_user_info: function(user, callback){
+        console.log(user.email);
+		var sql = "update user set name='"+user.name+"',username='"+user.username+"', tagline='"+user.tagline+"', facebook='"+user.facebook+"', instagram='"+user.instagram+"' where email="+user.email;
+        
+        console.log(sql);
+        db.execute(sql, function(status){
+            callback(status);
+            console.log(status);
+		});
 	},
 }

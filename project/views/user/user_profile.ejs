@@ -19,12 +19,12 @@
                         <span style="font-size: 23px; font-weight: bolder; 
                         text-transform: uppercase"><%= user_info.name %></span><br>
                         <% if(user_info.tagline != ''){ %>
-                            <span class="">&nbsp; <%= user_info.tagline %></span><br>
+                            <span class="">&nbsp; <%= user_info.tagline %></span><br><hr class="text-desing-hr">
                         <% }else{ %>
                             <span onclick="clickEdit()" class='if-else-css'>click to add your tagline</span> <hr class="text-desing-hr">
                         <% } %>
                         <span class="fa fa-map-marker">&nbsp;&nbsp;&nbsp; Kuril, Dhaka-1229</span><br>
-                        <span class="fa fa-envelope">&nbsp; ismhosen@gmail.com</span><br>
+                        <span class="fa fa-envelope">&nbsp; <%= user_info.email %></span><br>
                         <% if(user_info.facebook != ''){ %>
                             <span class="fa fa-facebook-square">&nbsp; <%= user_info.facebook %></span><br>
                         <% }else{ %>

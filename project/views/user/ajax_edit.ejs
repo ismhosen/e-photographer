@@ -17,13 +17,26 @@
             <button class="profile-btn btn-active">Update Profile</button>
         </div>
     </div>
-<form method="POST" action="./user">
-    <label>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label><input class="update-input" type="text" name="name" value="<%= user_info.name %>"><hr class="hr-20px">
-    <label>Username: </label><input class="update-input" type="text" name="name" value="<%= user_info.username %>"><hr class="hr-20px">
-    <label>Tagline: </label><input class="update-input" type="text" name="tagline" value="<%= user_info.username %>"><hr class="hr-20px">
+<form method="POST" action="./user/update">
+    <label>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label><input class="update-input" type="text" name="name" value="<%= user_info.name %>" required><hr class="hr-20px">
+    <label>Username: </label><input class="update-input" type="text" name="username" value="<%= user_info.username %>" required><hr class="hr-20px">
+    <% if(user_info.tagline != ''){ %>
+        <label>Tagline: </label><input class="update-input" type="text" name="tagline" value="<%= user_info.tagline %>" required><hr class="hr-20px">
+    <% }else{ %>
+        <label>Tagline: </label><input class="update-input" type="text" name="tagline" value="" required placeholder="Enter your tagline...."><hr class="hr-20px">
+    <% } %>
     <label>Email: </label><input class="email-input" type="text" name="email" value="<%= user_info.email %>" readonly><hr class="hr-20px">
-    <label>Facebook: </label><input class="update-input" type="text" name="fb" value="" placeholder="paste your facebook link"><hr class="hr-20px">
-    <label>Instagram: </label><input class="update-input" type="text" name="insta" value="" placeholder="paste your instagram link"><hr class="hr-20px">
-    <label>Passowrd: </label><input class="update-input" type="password" name="password" value="<%= user_info.password %>"><br><br><hr class="hr-20px">
+    <% if(user_info.facebook != ''){ %>
+        <label>Facebook: </label><input class="update-input" type="text" name="facebook" value="<%= user_info.facebook %>" required><hr class="hr-20px">
+    <% }else{ %>
+        <label>Facebook: </label><input class="update-input" type="text" name="facebook" value="" placeholder="paste your facebook link" required><hr class="hr-20px">
+    <% } %>
+    <% if(user_info.instagram != ''){ %>
+        <label>Instagram: </label><input class="update-input" type="text" name="instagram" value="<%= user_info.instagram %>"  required><hr class="hr-20px">
+    <% }else{ %>
+        <label>Instagram: </label><input class="update-input" type="text" name="instagram" value="" placeholder="paste your instagram link" required><hr class="hr-20px">
+    <% } %>
+    
+    <label>Passowrd: </label><input class="update-input" type="password" name="password" readonly value="<%= user_info.password %>"><br><br><hr class="hr-20px">
     <button type="button" class="btn btn-success" onclick="update_profile()">Update</button>
 </form>
