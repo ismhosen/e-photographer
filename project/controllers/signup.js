@@ -12,15 +12,17 @@ router.get('/', function(req,res){
     }
     res.render('./signup/signup', {data:data});
 });
-router.get('/updated_signup/:str',function(req,res){
-    // console.log(req.params.str);
-    user.checkUnique(req.params.str, function(results){
+router.get('/updated_signup/:str/:column',function(req,res){
+    // console.log(req.params);
+    user.checkUnique(req.params.str,req.params.column, function(results){
         // console.log(results.length);
 		if(results.length > 0){
         // console.log(req.params.str);
         // console.log("results: ",results)
 			return res.render('./signup/updated_contents', {str: "1"});	
-		}
+		}else{
+			return res.render('./signup/updated_contents', {str: "2"});	
+        }
 	});
 });
 router.get('/hire', function(req,res){

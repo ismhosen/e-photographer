@@ -1,22 +1,33 @@
-function checkunique(str)
+function checkunique(column,str)
 {
     // alert(str);
+    // alert(column)
+    if(str=="")
+        {
+            str="hello";
+        }
     $.ajax({
         type: "GET",
-        url: "/signup/updated_signup/"+str,
-        // data: data,
+        
+        url: "/signup/updated_signup/"+str+"/"+column,
+        data: {column},
+        
         // cache: true,
+        
         success: function(data){
         //    $("#resultarea").text(data);
         // alert('hello');
         // console.log(data);
-        if(data==0)
+        
+        if(str=="")
         {
             $('.error').css('display','none');
-        }else{
-            $('.error').html("Exist");
+        }else if(data!=""){
+            
+            $('.error').html(data);
             $('.error').css('display','block');
         }
+        // $('.error').html(data);
         
         }
         });

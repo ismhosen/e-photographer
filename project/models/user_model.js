@@ -13,8 +13,9 @@ module.exports = {
             callback(results);
         });
     },
-    checkUnique: function(str, callback){
-        var sql='select * from user where email="'+str+'"';
+    checkUnique: function(str,column, callback){
+        var sql='select * from user where '+column+"='"+str+"'";
+        // console.log(sql);
         db.getResult(sql,function(results){
             callback(results);
         });
@@ -25,7 +26,8 @@ module.exports = {
         db.execute(sql, function(status){
         // console.log(status);
 			callback(status);
-		});
+        });
+        
     },
     insertFeedback: function(user, callback){
         var sql="insert into feedback values ('','"+user.email+"','"+user.feedback+"')";
@@ -51,7 +53,7 @@ module.exports = {
         
         console.log(sql);
         db.execute(sql, function(status){
-            callback(status);
+            // callback(status);
             console.log(status);
 		});
 	},

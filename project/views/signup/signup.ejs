@@ -42,11 +42,11 @@
             </div>
             <div class="pull-right">
                 <font class="" size="3" ><strong>Username</strong></font><hr class="hr-5px">         
-                <input class="input-sm signin-input" type="text" placeholder="example.Username" name="username" value="<%= data.username %>" required onkeyup="checkunique(this.value)"><hr class="hr-22px">
+                <input class="input-sm signin-input" type="text" placeholder="example.Username" name="username" value="<%= data.username %>" required onkeyup="checkunique('username',this.value)"><hr class="hr-22px">
             </div>
             <div class="pull-left">
                 <font class="" size="3" ><strong>Email</strong></font><hr class="hr-5px">         
-                <input class="input-sm signin-input" type="text" placeholder="example@gmail.com" name="email" value="<%= data.email %>" required><hr class="hr-22px">
+                <input class="input-sm signin-input" type="text" placeholder="example@gmail.com" name="email" value="<%= data.email %>" onkeyup="checkunique('email',this.value)" required><hr class="hr-22px">
             </div>
             <div class="pull-right">
                 <font class="" size="3" ><strong>Password</strong></font><hr class="hr-5px">          
