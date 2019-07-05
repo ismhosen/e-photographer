@@ -61,6 +61,11 @@ html
     padding: 10px 40px;
     /* margin: 0 120px 0 120px; */
 }
+.signin-button:hover
+{
+    background: green;
+    color: #ffffff;
+}
 .gmail-button
 {
     width: 250px;

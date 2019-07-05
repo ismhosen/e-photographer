@@ -46,9 +46,10 @@ router.post('/', function(req,res){
     }
     
     // console.log('username: '+req.session.data.username);
-    req.checkBody('username','Name cann\'t be empty').notEmpty();
-    req.checkBody('email','Name cann\'t be empty').notEmpty();
-    req.checkBody('password','Name cann\'t be empty').notEmpty();
+    req.checkBody('username', '*Username can only contain letters, numbers, or underscores.').matches(/^[A-Za-z0-9_-]+$/, 'i');
+    req.checkBody('email','*Enter a valid email').isEmail().normalizeEmail();
+    req.checkBody('password', '*Password must be between 5-60 characters long.').len(5, 60);
+    req.checkBody("password", "*Password must include one lowercase character, one uppercase character, a number, and a special character.").matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.* )(?=.*[^a-zA-Z0-9]).{8,}$/, "i");
     const err=req.validationErrors();
 
     if(err){
