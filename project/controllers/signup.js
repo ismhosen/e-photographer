@@ -42,14 +42,7 @@ router.post('/', function(req,res){
         img:req.body.img,
         type:req.body.type,
     }
-    req.session.data={
-        name:req.body.name,
-        username:req.body.username,
-        email:req.body.email,
-        password:req.body.password,
-        img:req.body.img,
-        type:req.body.type,
-    }
+    
     // console.log('username: '+req.session.data.username);
     req.checkBody('username','Name cann\'t be empty').notEmpty();
     req.checkBody('email','Name cann\'t be empty').notEmpty();
@@ -63,7 +56,21 @@ router.post('/', function(req,res){
             if(status){
                 // res.send('success')
                 req.session.user_login=true;
-                res.redirect('./user');
+                user.getExtra(data.email, function(results){
+                    req.session.data={
+                        name:req.body.name,
+                        username:req.body.username,
+                        email:req.body.email,
+                        password:req.body.password,
+                        img:req.body.img,
+                        tagline:results[0].tagline,
+                        facebook:results[0].facebook,
+                        instagram:results[0].instagram,
+                        type:req.body.type,
+                    }
+                    res.redirect('./user');
+
+                })
             }else{
                 res.send('don\'t');
             }    

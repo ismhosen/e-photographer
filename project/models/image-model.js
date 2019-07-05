@@ -16,6 +16,7 @@ module.exports = {
     getImageById:function(id, category, callback){
         var sql='select * from '+category+' where id='+id;
         db.getResult(sql,function(result){
+            console.log('image result',result);
             callback(result);
         });
     },
@@ -24,5 +25,13 @@ module.exports = {
         db.getResult(sql,function(result){
             callback(result);
         });
+    },
+    insertPhotosCategory: function(id,data, callback){
+        var sql="insert into "+ data.category+" values ('','"+id+"','"+data.img+"','"+data.description+"')";
+        console.log(sql);
+        db.execute(sql, function(status){
+        console.log(status);
+			callback(status);
+		});
     },
 }

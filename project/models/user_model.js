@@ -1,6 +1,18 @@
 var db = require('./db');
 
 module.exports = {
+    getId: function(str, callback){
+        var sql='select id from user where email="'+str+'"';
+        db.getResult(sql,function(results){
+            callback(results);
+        });
+    },
+    getExtra: function(str, callback){
+        var sql='select * from user where email="'+str+'"';
+        db.getResult(sql,function(results){
+            callback(results);
+        });
+    },
     checkUnique: function(str, callback){
         var sql='select * from user where email="'+str+'"';
         db.getResult(sql,function(results){
@@ -8,18 +20,18 @@ module.exports = {
         });
     },
     insertUser: function(user, callback){
-        var sql="insert into user values ('','"+user.name+"','"+user.username+"','"+user.email+"','"+user.password+"','"+user.img+"','"+user.type+"')";
-        console.log(sql);
+        var sql="insert into user values ('','"+user.name+"','"+user.username+"','"+user.email+"','"+user.password+"','"+user.img+"','','','','"+user.type+"')";
+        // console.log(sql);
         db.execute(sql, function(status){
-        console.log(status);
+        // console.log(status);
 			callback(status);
 		});
     },
     insertFeedback: function(user, callback){
         var sql="insert into feedback values ('','"+user.email+"','"+user.feedback+"')";
-        console.log(sql);
+        // console.log(sql);
         db.execute(sql, function(status){
-        console.log(status);
+        // console.log(status);
 			callback(status);
 		});
     },

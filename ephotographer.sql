@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 04, 2019 at 07:25 PM
+-- Generation Time: Jul 05, 2019 at 08:43 AM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.1.29
 
@@ -21,6 +21,19 @@ SET time_zone = "+00:00";
 --
 -- Database: `ephotographer`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `all_photo`
+--
+
+CREATE TABLE `all_photo` (
+  `id` int(11) NOT NULL,
+  `photo_id` int(11) NOT NULL,
+  `category` varchar(50) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -197,6 +210,9 @@ CREATE TABLE `user` (
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `img` varchar(100) NOT NULL,
+  `tagline` varchar(100) NOT NULL,
+  `facebook` varchar(100) NOT NULL,
+  `instagram` varchar(100) NOT NULL,
   `type` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -204,17 +220,20 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `username`, `email`, `password`, `img`, `type`) VALUES
-(1, 'ismail', 'ismhosen', 'ismhosen@gmail.com', '1234', '', 'client'),
-(27, '1', '1', '1', '1', 'fashion2.jpg', 'client'),
-(29, 'Ismail Hosen', 'ismhosenn', '3', '3', 'dp1.jpg', 'photographer'),
-(30, '5', '5', '5', '5', 'dp2.jpg', 'photographer'),
-(31, '7', '7', '7', '7', 'dp1.jpg', 'client'),
-(32, '8', '8', '8', '8', 'dp1.jpg', 'photographer'),
-(33, '9', '9', '9', '9', '2.png', 'client'),
-(35, '10', '10', '10', '10', 'archi2.jpg', 'photographer'),
-(36, '11', '11', '11', '11', 'fashion1.jpg', 'client'),
-(37, '12', '12', '12', '12', 'fashion2.jpg', 'client');
+INSERT INTO `user` (`id`, `name`, `username`, `email`, `password`, `img`, `tagline`, `facebook`, `instagram`, `type`) VALUES
+(1, 'ismail', 'ismhosen', 'ismhosen@gmail.com', '1234', '', '', '', '', 'client'),
+(27, '1', '1', '1', '1', 'fashion2.jpg', '', '', '', 'client'),
+(29, 'Ismail Hosen', 'ismhosenn', '3', '3', 'dp1.jpg', '', '', '', 'photographer'),
+(30, '5', '5', '5', '5', 'dp2.jpg', '', '', '', 'photographer'),
+(31, '7', '7', '7', '7', 'dp1.jpg', '', '', '', 'client'),
+(32, '8', '8', '8', '8', 'dp1.jpg', '', '', '', 'photographer'),
+(33, '9', '9', '9', '9', '2.png', '', '', '', 'client'),
+(35, '10', '10', '10', '10', 'archi2.jpg', '', '', '', 'photographer'),
+(36, '11', '11', '11', '11', 'fashion1.jpg', '', '', '', 'client'),
+(37, '12', '12', '12', '12', 'fashion2.jpg', '', '', '', 'client'),
+(38, '21', '21', '21', '321', 'add-image.png', '', '', '', 'photographer'),
+(39, '22', '22', '22', '22', 'black.png', '', '', '', 'photographer'),
+(40, '24', '24', '24', '24', 'archi6.jpg', '', '', '', 'photographer');
 
 -- --------------------------------------------------------
 
@@ -268,11 +287,18 @@ INSERT INTO `wildlife_photos` (`id`, `user_id`, `img_name`, `img_des`) VALUES
 (4, 0, 'wild4.jpg', ''),
 (5, 0, 'wild5.jpg', ''),
 (6, 0, 'wild6.jpg', ''),
-(7, 0, 'wild7.jpg', '');
+(7, 0, 'wild7.jpg', ''),
+(8, 29, 'dp2.jpg', 'wew');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `all_photo`
+--
+ALTER TABLE `all_photo`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `architecture_photos`
@@ -329,6 +355,12 @@ ALTER TABLE `wildlife_photos`
 --
 
 --
+-- AUTO_INCREMENT for table `all_photo`
+--
+ALTER TABLE `all_photo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `architecture_photos`
 --
 ALTER TABLE `architecture_photos`
@@ -362,7 +394,7 @@ ALTER TABLE `recommend_photos`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `wedding_photos`
@@ -374,7 +406,7 @@ ALTER TABLE `wedding_photos`
 -- AUTO_INCREMENT for table `wildlife_photos`
 --
 ALTER TABLE `wildlife_photos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -15,8 +15,12 @@ router.get('/', function(req,res){
             email:req.session.data.email,
             img:req.session.data.img,
             password:req.session.data.password,
+            tagline:req.session.data.tagline,
+            facebook:req.session.data.facebook,
+            instagram:req.session.data.instagram,
             type:req.session.data.type,
         }
+        console.log(user_info);
         image.getRecommendPhotos(function(results){
             if(user_info.type=="photographer"){
                 res.render('./user/user_home',{all_image:results,user_info,category:'recommend_photos'});
@@ -31,6 +35,22 @@ router.get('/', function(req,res){
     
     
     // console.log(user_info);
+});
+router.post('/',function(req,res){	
+    // return res.render('./user/ajax_edit');
+    console.log(req.body);
+    console.log("id",user_info.email);
+    var data={
+        category:req.body.category,
+        img:req.body.img,
+        description:req.body.description,
+    }
+    user.getId(user_info.email, function(results){
+        // console.log(results[0].id);
+        image.insertPhotosCategory(results[0].id,data, function(status){
+
+        })
+    });
 });
 
 router.get('/profile', function(req, res){
