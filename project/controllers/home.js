@@ -15,6 +15,8 @@ router.get('/',function(req,res){
 router.get('/home',function(req,res){
     image.getRecommendPhotos(function(results){
 		if(results != null){
+            console.log("home",results);
+
 			return res.render('./home/home', {all_image: results,category:'recommend_photos'});		
 		}else{
 			res.send('Error!.. try again...');
@@ -38,7 +40,6 @@ router.get('/image_details/:id/:category',function(req,res){
     // image.getImageById(req.params.id, function(result){
     image.getImageById(req.params.id, req.params.category, function(result){
         if(result != null){
-            // console.log(result);
             image.getCategory(req.params.category, function(results){
                 res.render('./home/img_details', {image:result,all_image:results,category:req.params.category});
             })

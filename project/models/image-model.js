@@ -13,13 +13,15 @@ module.exports = {
 			callback(results);
 		});	
     },
-    getImageById:function(id, category, callback){
-        var sql='select * from '+category+' where id='+id;
+    getImageById:function(photo_id, category, callback){
+        var sql='select * from '+category+' where id='+photo_id;
+        console.log("getImageById",sql);
         db.getResult(sql,function(result){
-            console.log('image result',result);
+            // console.log('image result',result);
             callback(result);
         });
     },
+    
     getCategory:function(category,callback){
         var sql='select * from '+category;
         db.getResult(sql,function(result){
@@ -30,8 +32,29 @@ module.exports = {
         var sql="insert into "+ data.category+" values ('','"+id+"','"+data.img+"','"+data.description+"')";
         console.log(sql);
         db.execute(sql, function(status){
-        console.log(status);
+        // console.log(status);
 			callback(status);
 		});
     },
-}
+    insertAllImage: function(photo_id, user_id, data, callback){
+        var sql="insert into all_photo values ('','"+photo_id+"','"+data.category+"','"+user_id+"','"+data.description+"')";
+        // console.log(sql);
+        db.execute(sql, function(status){
+        // console.log(status);
+			callback(status);
+		});
+    },
+    getImageId:function(data,callback){
+        var sql='select * from '+data.category+' where img_name="'+data.img+'"';
+        db.getResult(sql,function(result){
+            callback(result);
+        });
+    },
+    getAllFrom_all_photo:function(id,callback){
+        var sql='select * from all_photo where user_id='+id;
+        // console.log(sql);
+        db.getResult(sql,function(result){
+            callback(result);
+        });
+    }
+};

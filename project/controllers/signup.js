@@ -61,6 +61,7 @@ router.post('/', function(req,res){
                 req.session.user_login=true;
                 user.getExtra(data.email, function(results){
                     req.session.data={
+                        id:results[0].id,
                         name:req.body.name,
                         username:req.body.username,
                         email:req.body.email,

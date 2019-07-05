@@ -7,6 +7,12 @@ module.exports = {
             callback(results);
         });
     },
+    getAll: function(str, callback){
+        var sql='select * from user where email="'+str+'"';
+        db.getResult(sql,function(results){
+            callback(results);
+        });
+    },
     getExtra: function(str, callback){
         var sql='select * from user where email="'+str+'"';
         db.getResult(sql,function(results){
@@ -48,13 +54,13 @@ module.exports = {
 		});
     },
     update_user_info: function(user, callback){
-        console.log(user.email);
+        // console.log(user.email);
 		var sql = "update user set name='"+user.name+"',username='"+user.username+"', tagline='"+user.tagline+"', facebook='"+user.facebook+"', instagram='"+user.instagram+"' where email="+user.email;
         
-        console.log(sql);
+        // console.log(sql);
         db.execute(sql, function(status){
             // callback(status);
-            console.log(status);
+            // console.log(status);
 		});
 	},
 }

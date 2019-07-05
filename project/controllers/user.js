@@ -10,6 +10,7 @@ router.get('/', function(req,res){
         res.redirect('./home');
     }else{
         user_info={
+            id:req.session.data.id,
             name:req.session.data.name,
             username:req.session.data.username,
             email:req.session.data.email,
@@ -45,12 +46,14 @@ router.post('/',function(req,res){
         img:req.body.img,
         description:req.body.description,
     }
-    user.getId(user_info.email, function(results){
-        // console.log(results[0].id);
-        image.insertPhotosCategory(results[0].id,data, function(status){
-
-        })
+    image.insertPhotosCategory(user_info.id,data, function(status){
+        image.getImageId(data,function(results){
+            image.insertAllImage(results[0].id,user_info.id,data, function(status){
+                res.render('./user/user_profile');
+            });
+        });
     });
+
 });
 router.post('/update',function(req,res){	
     // return res.render('./user/ajax_edit');
@@ -62,6 +65,25 @@ router.get('/profile', function(req, res){
     {
         res.redirect('/home');
     }else{
+
+        // var user_id=result[0].id;
+        console.log(user_info.id);
+        var g=new Array();
+        image.getAllFrom_all_photo(user_info.id, function(results){
+            // console.log(results);
+           
+            for(var i=0; i<results.length; i++){
+                // console.log("hello"+results[i].category);
+                image.getImageById(results[i].photo_id,results[i].category, function(results){
+                    // console.log("final",results[i].id);
+                    g.push(i);
+                    // g[i]=results[0];
+                })
+            }
+            // image.getImageById(user_info.id,results[0].photo_id,results[0].category, function(results){})
+            console.log("G",g)
+        })
+        
         res.render('./user/user_profile');
 
     }

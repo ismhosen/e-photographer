@@ -13,7 +13,7 @@ router.post('/', function(req,res){
 	user.validate(data, function(status){
 		if(status){
             // console.log(req.session.email);
-            user.checkUnique(req.body.email,function(results){
+            user.getAll(req.body.email,function(results){
             req.session.user_login=true;
             req.session.data = results[0];
                 // console.log("email: ",req.session.data);
