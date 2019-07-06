@@ -11,15 +11,22 @@ module.exports = {
 	},
 	checkCart:function(photo_id,category,user_id, callback){
 		var sql = "select * from cart where photo_id='"+photo_id+"' and category='"+category+"' and user_id= '"+user_id+"'";
-		// var sql='select * from '+data.category+' where img_name="'+data.img+'"';
-        // console.log(sql);
-        db.execute(sql, function(result){
-        // console.log(status);
+        db.getResult(sql, function(results){
+        // console.log(results.length);
 			if(results.length > 0){
 				callback(true);
 			}else{
 				callback(false);
 			}
 		});
-	}
+	},
+	countCart:function(user_id, callback){
+		var sql = "select * from cart where user_id="+user_id;
+		console.log(sql);
+		
+        db.getResult(sql, function(results){
+        // console.log(results.length);
+			callback(results);
+		});
+	},
 }

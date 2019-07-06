@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 06, 2019 at 07:08 PM
+-- Generation Time: Jul 06, 2019 at 10:06 PM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.1.29
 
@@ -44,7 +44,12 @@ INSERT INTO `all_photo` (`id`, `photo_id`, `category`, `user_id`, `description`)
 (1, 13, 'wedding_photos', 29, 'asdasd'),
 (3, 11, 'wildlife_photos', 29, 'dfgdfg'),
 (4, 20, 'wedding_photos', 29, 'asda'),
-(5, 12, 'wedding_photos', 47, 'sdfsdf');
+(5, 12, 'wedding_photos', 47, 'sdfsdf'),
+(6, 1, 'sports_photos', 29, 'sdfsd'),
+(7, 2, 'sports_photos', 29, 'bd'),
+(8, 1, 'fashion_photos', 29, 'f'),
+(9, 4, 'architecture_photos', 29, 'archi'),
+(10, 6, 'wildlife_photos', 29, 'sdf');
 
 -- --------------------------------------------------------
 
@@ -69,7 +74,8 @@ INSERT INTO `architecture_photos` (`id`, `user_id`, `img_name`, `img_des`) VALUE
 (3, 0, 'archi3.jpg', ''),
 (4, 0, 'archi4.jpg', ''),
 (5, 0, 'archi5.jpg', ''),
-(6, 0, 'archi6.jpg', '');
+(6, 0, 'archi6.jpg', ''),
+(7, 29, 'archi4.jpg', 'archi');
 
 -- --------------------------------------------------------
 
@@ -89,7 +95,14 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `photo_id`, `category`, `user_id`) VALUES
-(1, 3, 'recommend_photos', 29);
+(1, 3, 'recommend_photos', 29),
+(18, 6, 'recommend_photos', 37),
+(19, 9, 'recommend_photos', 37),
+(20, 10, 'recommend_photos', 37),
+(21, 5, 'recommend_photos', 37),
+(22, 3, 'recommend_photos', 37),
+(23, 8, 'recommend_photos', 37),
+(24, 7, 'recommend_photos', 37);
 
 -- --------------------------------------------------------
 
@@ -115,7 +128,8 @@ INSERT INTO `fashion_photos` (`id`, `user_id`, `img_name`, `img_des`) VALUES
 (4, 0, 'fashion4.jpg', ''),
 (5, 0, 'fashion5.jpg', ''),
 (6, 0, 'fashion6.jpg', ''),
-(7, 0, 'fashion7.jpg', '');
+(7, 0, 'fashion7.jpg', ''),
+(8, 29, 'fashion1.jpg', 'f');
 
 -- --------------------------------------------------------
 
@@ -229,6 +243,14 @@ CREATE TABLE `sports_photos` (
   `img_des` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `sports_photos`
+--
+
+INSERT INTO `sports_photos` (`id`, `user_id`, `img_name`, `img_des`) VALUES
+(1, 29, 'sport0.jpg', 'sdfsd'),
+(2, 29, 'sport00.jpg', 'bd');
+
 -- --------------------------------------------------------
 
 --
@@ -254,7 +276,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `username`, `email`, `password`, `img`, `tagline`, `facebook`, `instagram`, `type`, `active`) VALUES
-(1, 'ismail', '', 'ismhosen@gmail.com', '1234', '', '', '', '', 'admin', 0),
+(1, 'Admin', '', 'admin@gmail.com', 'admin', 'dp1.jpg', '', '', '', 'admin', 1),
 (27, '1', '', '1', '1', 'fashion2.jpg', '', '', '', 'client', 0),
 (29, 'Ismail Hosen ', 'ism', '3', '3', 'dp1.jpg', 'capture', '/ismhosenn', '/ismhosenn', 'photographer', 0),
 (30, '5', '', '5', '5', 'dp2.jpg', '', '', '', 'photographer', 0),
@@ -263,7 +285,7 @@ INSERT INTO `user` (`id`, `name`, `username`, `email`, `password`, `img`, `tagli
 (33, '9', '', '9', '9', '2.png', '', '', '', 'client', 0),
 (35, '10', '', '10', '10', 'archi2.jpg', '', '', '', 'photographer', 0),
 (36, '11', '', '11', '11', 'fashion1.jpg', '', '', '', 'client', 0),
-(37, '12', '', '12', '12', 'fashion2.jpg', '', '', '', 'client', 0),
+(37, '12', '', '12', '12', 'fashion2.jpg', '', '', '', 'client', 1),
 (38, '21', '', '21', '321', 'add-image.png', '', '', '', 'photographer', 0),
 (39, '22', '', '22', '22', 'black.png', '', '', '', 'photographer', 0),
 (40, '24', '', '24', '24', 'archi6.jpg', '', '', '', 'photographer', 0),
@@ -343,7 +365,8 @@ INSERT INTO `wildlife_photos` (`id`, `user_id`, `img_name`, `img_des`) VALUES
 (8, 29, 'dp2.jpg', 'wew'),
 (9, 29, 'archi6.jpg', 'asdasd'),
 (10, 29, 'archi6.jpg', 'dgdfg'),
-(11, 29, 'fashion6.jpg', 'dfgdfg');
+(11, 29, 'fashion6.jpg', 'dfgdfg'),
+(12, 29, 'wild6.jpg', 'sdf');
 
 --
 -- Indexes for dumped tables
@@ -424,25 +447,25 @@ ALTER TABLE `wildlife_photos`
 -- AUTO_INCREMENT for table `all_photo`
 --
 ALTER TABLE `all_photo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `architecture_photos`
 --
 ALTER TABLE `architecture_photos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `fashion_photos`
 --
 ALTER TABLE `fashion_photos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `feedback`
@@ -466,7 +489,7 @@ ALTER TABLE `recommend_photos`
 -- AUTO_INCREMENT for table `sports_photos`
 --
 ALTER TABLE `sports_photos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -484,7 +507,7 @@ ALTER TABLE `wedding_photos`
 -- AUTO_INCREMENT for table `wildlife_photos`
 --
 ALTER TABLE `wildlife_photos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
