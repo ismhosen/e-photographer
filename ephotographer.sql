@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 06, 2019 at 10:01 AM
+-- Generation Time: Jul 06, 2019 at 07:08 PM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.1.29
 
@@ -70,6 +70,26 @@ INSERT INTO `architecture_photos` (`id`, `user_id`, `img_name`, `img_des`) VALUE
 (4, 0, 'archi4.jpg', ''),
 (5, 0, 'archi5.jpg', ''),
 (6, 0, 'archi6.jpg', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `id` int(11) NOT NULL,
+  `photo_id` int(11) NOT NULL,
+  `category` varchar(100) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `photo_id`, `category`, `user_id`) VALUES
+(1, 3, 'recommend_photos', 29);
 
 -- --------------------------------------------------------
 
@@ -157,6 +177,19 @@ INSERT INTO `image_details` (`id`, `user_id`, `img_name`, `img_des`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `messenger`
+--
+
+CREATE TABLE `messenger` (
+  `sender_id` int(50) NOT NULL,
+  `receiver_id` int(50) NOT NULL,
+  `message` varchar(500) DEFAULT NULL,
+  `image` varchar(500) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `recommend_photos`
 --
 
@@ -174,7 +207,7 @@ CREATE TABLE `recommend_photos` (
 INSERT INTO `recommend_photos` (`id`, `user_id`, `img_name`, `img_des`) VALUES
 (1, 0, 'p4.jpg', ''),
 (2, 0, 'p10.jpg', ''),
-(3, 0, 'p1.JPG', ''),
+(3, 29, 'p1.JPG', ''),
 (4, 0, 'p2.jpg', ''),
 (5, 0, 'p3.jpg', ''),
 (6, 0, 'p5.JPG', ''),
@@ -212,34 +245,35 @@ CREATE TABLE `user` (
   `tagline` varchar(100) NOT NULL,
   `facebook` varchar(100) NOT NULL,
   `instagram` varchar(100) NOT NULL,
-  `type` varchar(50) NOT NULL
+  `type` varchar(50) NOT NULL,
+  `active` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `username`, `email`, `password`, `img`, `tagline`, `facebook`, `instagram`, `type`) VALUES
-(1, 'ismail', '', 'ismhosen@gmail.com', '1234', '', '', '', '', 'client'),
-(27, '1', '', '1', '1', 'fashion2.jpg', '', '', '', 'client'),
-(29, 'Ismail Hosen ', 'ism', '3', '3', 'dp1.jpg', 'capture', '/ismhosenn', '/ismhosenn', 'photographer'),
-(30, '5', '', '5', '5', 'dp2.jpg', '', '', '', 'photographer'),
-(31, '7', '', '7', '7', 'dp1.jpg', '', '', '', 'client'),
-(32, '8', '', '8', '8', 'dp1.jpg', '', '', '', 'photographer'),
-(33, '9', '', '9', '9', '2.png', '', '', '', 'client'),
-(35, '10', '', '10', '10', 'archi2.jpg', '', '', '', 'photographer'),
-(36, '11', '', '11', '11', 'fashion1.jpg', '', '', '', 'client'),
-(37, '12', '', '12', '12', 'fashion2.jpg', '', '', '', 'client'),
-(38, '21', '', '21', '321', 'add-image.png', '', '', '', 'photographer'),
-(39, '22', '', '22', '22', 'black.png', '', '', '', 'photographer'),
-(40, '24', '', '24', '24', 'archi6.jpg', '', '', '', 'photographer'),
-(41, '211', '211', '211', '211', 'fashion3.jpg', 'my tagline', '/myfacebook', '/myinstagram', 'photographer'),
-(42, '2111', '2111', '2111', '2111', 'fashion3.jpg', '', '', '', 'client'),
-(43, '232', '2323', '2323', '32323', 'fashion5.jpg', '', '', '', 'photographer'),
-(44, 'fg', '3', 'fghf', 'As#123456', 'fashion6.jpg', '', '', '', 'photographer'),
-(45, '455', '455', 'ismhdossden@gmail.com', 'Ad#232323424', 'dp1.jpg', '', '', '', 'photographer'),
-(46, '555', '555', 'ismhdosen@gmail.com', 'Ad@3345345', 'fashion6.jpg', '', '', '', 'photographer'),
-(47, '555', '555', 'ismhdasdosen@gmail.com', '3A@dfgh4545', 'fashion7.jpg', '', '', '', 'photographer');
+INSERT INTO `user` (`id`, `name`, `username`, `email`, `password`, `img`, `tagline`, `facebook`, `instagram`, `type`, `active`) VALUES
+(1, 'ismail', '', 'ismhosen@gmail.com', '1234', '', '', '', '', 'admin', 0),
+(27, '1', '', '1', '1', 'fashion2.jpg', '', '', '', 'client', 0),
+(29, 'Ismail Hosen ', 'ism', '3', '3', 'dp1.jpg', 'capture', '/ismhosenn', '/ismhosenn', 'photographer', 0),
+(30, '5', '', '5', '5', 'dp2.jpg', '', '', '', 'photographer', 0),
+(31, '7', '', '7', '7', 'dp1.jpg', '', '', '', 'client', 0),
+(32, '8', '', '8', '8', 'dp1.jpg', '', '', '', 'photographer', 0),
+(33, '9', '', '9', '9', '2.png', '', '', '', 'client', 0),
+(35, '10', '', '10', '10', 'archi2.jpg', '', '', '', 'photographer', 0),
+(36, '11', '', '11', '11', 'fashion1.jpg', '', '', '', 'client', 0),
+(37, '12', '', '12', '12', 'fashion2.jpg', '', '', '', 'client', 0),
+(38, '21', '', '21', '321', 'add-image.png', '', '', '', 'photographer', 0),
+(39, '22', '', '22', '22', 'black.png', '', '', '', 'photographer', 0),
+(40, '24', '', '24', '24', 'archi6.jpg', '', '', '', 'photographer', 0),
+(41, '211', '211', '211', '211', 'fashion3.jpg', 'my tagline', '/myfacebook', '/myinstagram', 'photographer', 0),
+(42, '2111', '2111', '2111', '2111', 'fashion3.jpg', '', '', '', 'client', 0),
+(43, '232', '2323', '2323', '32323', 'fashion5.jpg', '', '', '', 'photographer', 0),
+(44, 'fg', '3', 'fghf', 'As#123456', 'fashion6.jpg', '', '', '', 'photographer', 0),
+(45, '455', '455', 'ismhdossden@gmail.com', 'Ad#232323424', 'dp1.jpg', '', '', '', 'photographer', 0),
+(46, '555', '555', 'ismhdosen@gmail.com', 'Ad@3345345', 'fashion6.jpg', '', '', '', 'photographer', 0),
+(47, '555', '555', 'ismhdasdosen@gmail.com', '3A@dfgh4545', 'fashion7.jpg', '', '', '', 'photographer', 0);
 
 -- --------------------------------------------------------
 
@@ -328,6 +362,12 @@ ALTER TABLE `architecture_photos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `fashion_photos`
 --
 ALTER TABLE `fashion_photos`
@@ -391,6 +431,12 @@ ALTER TABLE `all_photo`
 --
 ALTER TABLE `architecture_photos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `fashion_photos`
