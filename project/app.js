@@ -9,6 +9,8 @@ var signup          =   require('./controllers/signup');
 var signout          =   require('./controllers/signout');
 var user            =   require('./controllers/user');
 var client            =   require('./controllers/client');
+var admin           =   require('./controllers/admin');
+var messenger       =   require('./controllers/messenger');
 
 var app=express();
 
@@ -26,8 +28,12 @@ app.use('/signup',signup);
 app.use('/signout',signout);
 app.use('/user',user);
 app.use('/client',client);
-
+app.use('/admin',admin);
+app.use('/messenger',messenger);
 //routing
-
+//
 //server setup
-app.listen(8000);
+app.listen(8000, function(){
+    console.log('Server started at port 8000');
+  });
+  

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <% include ../common/link.ejs %>
+    <link rel="stylesheet" href="/css/admin_header.css">
+    <link rel="stylesheet" href="/css/admin_home.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <title>Admin_Home</title>
+  </head>
+  <body>
+    <% include ../common/admin_header.ejs %>
+    <br><br><br><br>
+
+    <form method="POST">
+      <table border="1" cellspaceing="0" align="center" width="50%">
+        <tr height="50px">
+          <td align="center" colspan="2">Manual Search</td>
+        </tr>
+
+        <tr height="50px" align="center">
+          
+            <td width="80%">
+              ID:<input type="text" name="id" value="" maxlength="100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              USERNAME:<input type="text" name="username" value="" maxlength="100">
+            </td>
+            <td width="20%">
+              <input type="submit" name="search" value="Search" size="200px">
+            </td>
+        </tr>
+      </table>
+    </form>
+
+
+
+    <table border="1" cellspaceing="0" align="center" width="80%">
+      <tr height="50px">
+        <td align="center"><a href="/admin">Show all Users</a></td>
+      </tr>
+      <tr height="400px" valign="top">
+        <td align="center">
+          <table border="1" cellspacing="0" align="center">
+            <tr height="50px" align="center" style="background-color:slateblue">
+              <td width="9.09%">ID</td>
+              <td width="9.09%">NAME</td>
+              <td width="9.09%">USERNAME</td>
+              <td width="9.09%">PASSWORD</td>
+              <td width="9.09%">IMAGE</td>
+              <td width="9.09%">USERTYPE</td>
+              <td width="9.09%">ACTIVE</td>
+              <td width="9.09%">ACTIVATE</td>
+              <td width="9.09%">DEACTIVATE</td>
+              <td width="9.09%">DELETE</td>
+              <td width="9.09%">MESSAGE</td>
+            </tr>
+            <% for(var i=0; i < results.length; i++){ %>
+            <tr height="100px" align="center">
+        			<td width="9.09%"><%= results[i].id %></td>
+              <td width="9.09%"><%= results[i].name %></td>
+        			<td width="9.09%"><%= results[i].username %></td>
+        			<td width="9.09%"><%= results[i].password %></td>
+              <td width="9.09%"><img src="../../images/<%= results[i].img %>" height="100px" width="100px"></td>
+              <td width="9.09%"><%= results[i].type %></td>
+              <% if(results[i].active==1){ %>
+                <td width="9.09%" style="background-color:green"><%= results[i].active %></td>
+              <% }else{ %>
+                <td width="9.09%" style="background-color:red"><%= results[i].active %></td>
+              <% } %>
+              <td width="9.09%" style="background-color:skyblue"><a href="/admin/activateUser/<%= results[i].id %>">Activate User</a></td>
+              <td width="9.09%" style="background-color:yellow"><a href="/admin/deactivateUSer/<%= results[i].id %>">Deactivate User</a></td>
+              <td width="9.09%" style="background-color:silver"><a href="/admin/deleteUser/<%= results[i].id %>">Delete User</a></td>
+              <td width="9.09%" style="background-color:greenyellow"><a href="/messenger/getMessage/<%= results[i].id %>">Send Message</a></td>
+        		</tr>
+
+        		<% } %>
+           </table>
+        </td>
+      </tr>
+    </table>
+
+    <br><br><br><br>
+    <% include ../common/footer.ejs %>
+
+  </body>
+</html>

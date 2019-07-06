@@ -29,6 +29,9 @@ router.get('/', function(req,res){
             else if(user_info.type=="client"){
                 // res.render('./user/client_home',{all_image:results,user_info,category:'recommend_photos'});
                 res.redirect('./client')
+            }else if(user_info.type=="admin"){
+                // res.render('./user/client_home',{all_image:results,user_info,category:'recommend_photos'});
+                res.redirect('./admin')
             }
             
         })
