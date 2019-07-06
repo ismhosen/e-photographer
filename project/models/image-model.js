@@ -15,7 +15,7 @@ module.exports = {
     },
     getImageById:function(photo_id, category, callback){
         var sql='select * from '+category+' where id='+photo_id;
-        console.log("getImageById",sql);
+        // console.log("getImageById",sql);
         db.getResult(sql,function(result){
             // console.log('image result',result);
             callback(result);

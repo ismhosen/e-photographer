@@ -15,7 +15,7 @@ router.get('/',function(req,res){
 router.get('/home',function(req,res){
     image.getRecommendPhotos(function(results){
 		if(results != null){
-            console.log("home",results);
+            // console.log("home",results);
 
 			return res.render('./home/home', {all_image: results,category:'recommend_photos'});		
 		}else{

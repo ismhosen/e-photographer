@@ -144,6 +144,19 @@
               
             </form>
           </div>
+          <hr><hr><hr>
+
+        <% for(var i=0; i< all_image.length; i++){ %>
+            <!-- kasdakjsd -->
+            <div class="responsive">
+                <div class="gallery">
+                    <a target="_blank" href="/images/p1.jpg">
+                    <img src="/images/<%= all_image[i][0].img_name %>" alt="Northern Lights" width="600" height="400">
+                    </a>
+                    <div class="desc"><span class="fa fa-heart">&nbsp;&nbsp;4k</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fa fa-eye">&nbsp;&nbsp;1k</span></div>
+                </div>
+            </div>
+        <% } %>
 
     <% include ../common/footer.ejs %>
     <script src="/js/user_profile.js"></script>

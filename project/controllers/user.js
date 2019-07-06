@@ -65,27 +65,30 @@ router.get('/profile', function(req, res){
     {
         res.redirect('/home');
     }else{
+        var g=[];
 
         // var user_id=result[0].id;
         console.log(user_info.id);
-        var g=new Array();
+        
         image.getAllFrom_all_photo(user_info.id, function(results){
             // console.log(results);
-           
             for(var i=0; i<results.length; i++){
                 // console.log("hello"+results[i].category);
                 image.getImageById(results[i].photo_id,results[i].category, function(results){
+                    console.log("final", results);
                     // console.log("final",results[i].id);
-                    g.push(i);
+                    g.push(results);
                     // g[i]=results[0];
+                    console.log('gggg', g);
                 })
             }
             // image.getImageById(user_info.id,results[0].photo_id,results[0].category, function(results){})
-            console.log("G",g)
+            // console.log("main array",g)
         })
-        
-        res.render('./user/user_profile');
+        setTimeout(function(){
+        res.render('./user/user_profile',{all_image: g});
 
+        },3000);
     }
 });
 router.get('/ajax_edit/',function(req,res){	
