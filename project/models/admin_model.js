@@ -2,7 +2,7 @@ var db = require('./db');
 
 module.exports = {
     getAll: function(callback){
-		var sql = "select * from user";
+		var sql = "select * from user where type != 'admin'";
 		db.getResult(sql, function(results){
 			callback(results);
 		});
@@ -31,6 +31,12 @@ module.exports = {
 		db.getResult(sql, function(results){
 			callback(results);
 		});
+	},
+	getWeedingPhotos: function(callback){
+		var sql = "select * from wedding_photos";
+		db.getResult(sql, function(results){
+			callback(results);
+		}); 
 	}
 }
 

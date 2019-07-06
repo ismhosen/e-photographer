@@ -5,9 +5,16 @@ var router=express.Router();
 
 router.get('/', function(req,res){
     admin_model.getAll(function(results){
+		console.log(results);
 		if(results != null){
-      		console.log(results);
-			res.render('./admin/admin_home', {results: results});
+			admin_model.getWeedingPhotos(function(results1){
+				console.log(results1);
+				if(results1 != null){
+					res.render('./admin/admin_home', {results: results, results1: results1});
+				}else{
+
+				}
+			});  
 		}else{
 			res.send('Error!.. try again...');
 		}
@@ -25,7 +32,7 @@ router.get('/activateUser/:id', function(req, res){
 			admin_model.getAll(function(results){
 				if(results != null){
 			  		console.log(results);
-					res.render('./admin/admin_home', {results: results});
+					res.render('./admin/admin_home', {results: results, results1: "null"});
 				}else{
 					res.send('Error!.. try again...');
 				}
@@ -44,7 +51,7 @@ router.get('/deactivateUser/:id', function(req, res){
 			admin_model.getAll(function(results){
 				if(results != null){
 			  		console.log(results);
-					res.render('./admin/admin_home', {results: results});
+					res.render('./admin/admin_home', {results: results, results1: "null"});
 				}else{
 					res.send('Error!.. try again...');
 				}
@@ -63,7 +70,7 @@ router.get('/deleteUser/:id', function(req, res){
 			admin_model.getAll(function(results){
 				if(results != null){
 			  		console.log(results);
-					res.render('./admin/admin_home', {results: results});
+					res.render('./admin/admin_home', {results: results, results1: "null"});
 				}else{
 					res.send('Error!.. try again...');
 				}
@@ -93,7 +100,7 @@ router.post('/', function(req, res){
 	admin_model.search(data, function(results){
 
 		if(results != null){
-			res.render('./admin/admin_home', {results: results});	
+			res.render('./admin/admin_home', {results: results, results1: "null"});	
 		}else{
 			res.send('Error!.. try again...');
 		}
