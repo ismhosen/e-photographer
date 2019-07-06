@@ -1,5 +1,6 @@
 var express=require('express');
 var image = require.main.require('./models/image-model');
+var user = require.main.require('./models/user_model');
 var router=express.Router();
 
 router.get('/',function(req,res){
@@ -41,7 +42,11 @@ router.get('/image_details/:id/:category',function(req,res){
     image.getImageById(req.params.id, req.params.category, function(result){
         if(result != null){
             image.getCategory(req.params.category, function(results){
-                res.render('./home/img_details', {image:result,all_image:results,category:req.params.category});
+				// console.log("result",result);
+				user.geBytId(result[0].user_id, function(photo_owner){
+					// console.log(results);
+					res.render('./home/img_details', {image:result,all_image:results,category:req.params.category,owner_info:photo_owner});
+				})
             })
         }else{
             res.render('/home')

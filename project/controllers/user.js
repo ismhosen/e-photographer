@@ -68,18 +68,18 @@ router.get('/profile', function(req, res){
         var g=[];
 
         // var user_id=result[0].id;
-        console.log(user_info.id);
+        // console.log(user_info.id);
         
         image.getAllFrom_all_photo(user_info.id, function(results){
             // console.log(results);
             for(var i=0; i<results.length; i++){
                 // console.log("hello"+results[i].category);
                 image.getImageById(results[i].photo_id,results[i].category, function(results){
-                    console.log("final", results);
+                    // console.log("final", results);
                     // console.log("final",results[i].id);
                     g.push(results);
                     // g[i]=results[0];
-                    console.log('gggg', g);
+                    // console.log('gggg', g);
                 })
             }
             // image.getImageById(user_info.id,results[0].photo_id,results[0].category, function(results){})

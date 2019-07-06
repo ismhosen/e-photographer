@@ -7,6 +7,13 @@ module.exports = {
             callback(results);
         });
     },
+    geBytId: function(id, callback){
+        var sql='select * from user where id='+id;
+        db.getResult(sql,function(results){
+            // console.log(sql);
+            callback(results);
+        });
+    },
     getAll: function(str, callback){
         var sql='select * from user where email="'+str+'"';
         db.getResult(sql,function(results){
