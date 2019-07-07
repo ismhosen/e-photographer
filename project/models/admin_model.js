@@ -37,6 +37,13 @@ module.exports = {
 		db.getResult(sql, function(results){
 			callback(results);
 		}); 
+	},
+	deleteWeddingImage: function(id, callback){
+		var sql = "delete from wedding_photos where id="+id;
+		db.execute(sql, function(status){
+			callback(status);
+		});
 	}
+
 }
 

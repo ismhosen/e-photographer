@@ -40,7 +40,6 @@ router.get('/getMessage/:id', function(req,res){
 
 
 router.post('/:id', function(req,res){
-    res.send('Send button pressed....');
     data = {
         sender_id: "1",
         receiver_id: req.params.id,
@@ -48,7 +47,7 @@ router.post('/:id', function(req,res){
     };
     messenger_model.insertData(data, function(status){
         if(status){
-            alert('Sending message complete...');
+            res.redirect('/messenger/getMessage/'+data.receiver_id);
         }else{
             res.send('Error!.. try again...');
         }

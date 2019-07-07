@@ -107,7 +107,29 @@ router.post('/', function(req, res){
 	});
 });
 
-
+router.get('/imageDelete/:id', function(req,res){
+	admin_model.deleteWeddingImage(req.params.id, function(status){
+		if(status){
+			admin_model.getAll(function(results){
+				console.log(results);
+				if(results != null){
+					admin_model.getWeedingPhotos(function(results1){
+						console.log(results1);
+						if(results1 != null){
+							res.render('./admin/admin_home', {results: results, results1: results1});
+						}else{
+		
+						}
+					});  
+				}else{
+					res.send('Error!.. try again...');
+				}
+			});
+		}else{
+			res.send('Error!.. try again...');
+		}
+	});
+});
 
 
 module.exports=router;
